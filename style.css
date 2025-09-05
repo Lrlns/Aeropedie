@@ -1,0 +1,7 @@
+:root{--blue:#0056d2;--text:#2d3748;--line:#e5e7eb;--bg:#ffffff} /*définit des variables de couleurs */
+*{box-sizing: border-box}/*Recalcule la taille des éléments*/
+html,body{margin:0}/*Enlève les marges imposées par les navigateurs*/
+
+
+/*couleurs et polices*/
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,"Noto Sans";color:var(--text)}
