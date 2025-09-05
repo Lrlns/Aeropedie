@@ -21,9 +21,9 @@ border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.08);
 
 
 .explore{
-    
+
     display:inline-flex;align-items:center;gap:8px;
     padding:10px 14px;border:2px solid var(--blue);border-radius:12px;
-    background:#fff;color:#1f2937;font-weight:600;cursor:point
+    background:#fff;color:#1f2937;font-weight:600;cursor:point;
 
 }
