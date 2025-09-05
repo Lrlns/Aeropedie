@@ -9,21 +9,40 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,
 
 .header{position:sticky;top :0;background:transparent;padding:0 0}
 .container{max-width:1200px;margin:0 auto;padding:0 0}
-
-
 .bar{
-width:100%;overflow:hidden;display:flex;gap:16px;
-align-items:center;justify-content:space-between;
-height:65px;max-width:900px;margin:0 auto;padding:12px 24px;
-background:var(--bg);border:1px solid var(--line);
-border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.08);
+    width:100%;overflow:hidden;display:flex;gap:16px;
+    align-items:center;justify-content:space-between;
+    height:65px;max-width:900px;margin:0 auto;padding:12px 24px;
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
 
-.explore{
+
+
+.explore button{
 
     display:inline-flex;align-items:center;gap:8px;
     padding:10px 14px;border:2px solid var(--blue);border-radius:12px;
-    background:#fff;color:#1f2937;font-weight:600;cursor:point;
+    background:#fff;color:#1f2937;font-weight:600;cursor:pointer
 
+}
+
+.explore svg{width:16px;height:16px}
+
+
+
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo .title{font-weight:800;font-size:24px;letter-spacing:.2px;color:var(--text)}
+
+
+.search{flex:1;display:flex;justify-content:center}
+.search .field{display:flex;align-items:center;gap:8px;width:min(780px,100%)}
+.search input{
+  flex:1;padding:14px 18px;border:1px solid #dbe2ea;border-radius:999px;background:#fff;
+  outline:none;font-size:16px;color:#374151;box-shadow:0 0 0 4px rgba(0,86,210,.06) inset
+}
+.search button{
+  margin-left:-56px;width:44px;height:44px;border:none;border-radius:999px;
+  background:var(--blue);color:#fff;cursor:pointer
 }
