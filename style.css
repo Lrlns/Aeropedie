@@ -275,7 +275,7 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 /* Conteneur en grille */
 .histoire{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* colonnes égales, responsive */
+grid-template-columns: repeat(3, minmax(0, 1fr)); /* colonnes égales, responsive */
   gap: 12px;
   max-width: 1200px;
   margin: 24px auto;
