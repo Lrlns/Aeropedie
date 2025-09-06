@@ -1,67 +1,89 @@
 <!DOCTYPE html>
-
+<html lang="fr">
 <head>
-<html lang="fr"></html>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="stylesheet" href="style.css"> 
-<script src="script.js"></script>
-<title>Aéropédie</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"> 
+  <title>Aéropédie</title>
 </head>
-
 
 <body>
 
+  <header class="hero">
+    <div class="container">
+      <div class="bar">
 
-    <header class="hero">
-        <div class="container">
-          <div class="bar">
+        <a class="explore" href="#">
+          <button>
+            <span class="label">Explorer</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m6 9 6 6 6 -6"></path>
+            </svg>
+          </button>
+        </a>
 
+        <a class="logo" href="#">
+          <span class="title">Aéropédie</span>
+        </a>
 
-              <a class="explore">
-              <button>
-              <span class="label">Explorer</span>
-              <svg viewBox="0 0 24 24" fill="None" stroke="currentColor" strokeWidth="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6 -6"></path></svg>
-              </button>
-              </a>
+        <!-- Bouton loupe toujours visible -->
+        <button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
 
+      </div>
+    </div>  
+  </header>
 
-              <a class="logo" href="#">
-                <span class="title">Aéropédie</span>
-              </a>
+  <img src="Rafale.jpg" alt="Image d'un avion" />
+  <h1>Bienvenue sur Aéropédie</h1>
+  <p>Le site de référence sur l'aéronautique et l'aviation</p>
+  <p>Ici, vous trouverez des informations complètes sur les avions, les hélicoptères</p>
 
+  <!-- Modal avec le formulaire de recherche -->
+  <dialog id="searchDialog">
+    <form class="search-form" id="searchForm">
+      <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
+      <button type="submit" class="submit" aria-label="Lancer la recherche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+      <button type="button" class="close" aria-label="Fermer">✕</button>
+    </form>
+  </dialog>
 
-              <!-- Bouton loupe toujours visible -->
-<button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-    <circle cx="11" cy="11" r="8" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-  </svg>
-</button>
+  <!-- Ton script -->
+  <script>
+    const trigger = document.querySelector('.search-trigger');
+    const dialog  = document.getElementById('searchDialog');
+    const form    = document.getElementById('searchForm');
+    const closeBtn= dialog.querySelector('.close');
 
-<!-- Modal avec le formulaire de recherche -->
-<dialog id="searchDialog">
-  <form class="search-form" id="searchForm">
-    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
-    <button type="submit" class="submit" aria-label="Lancer la recherche">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    </button>
-    <button type="button" class="close" aria-label="Fermer">✕</button>
-  </form>
-</dialog>
+    trigger.addEventListener('click', () => {
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open','');
+      // focus sur l'input
+      setTimeout(() => dialog.querySelector('input').focus(), 0);
+    });
 
+    closeBtn.addEventListener('click', () => dialog.close());
 
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = new FormData(form).get('q') || '';
+      if (!q.trim()) return dialog.close();
 
-          </div>
-        </div>  
-    </header>
-    <img src="Rafale.jpg" alt="Image d'un avion" />
-<h1>Bienvenue sur Aéropédie</h1>
-<p>Le site de référence sur l'aéronautique et l'aviation</p>
-<p>Ici, vous trouverez des informations complètes sur les avions, les hélicoptères
+      // Redirection vers une page de résultats
+      window.location.href = '/recherche?q=' + encodeURIComponent(q);
 
-  </body>
+      dialog.close();
+    });
+  </script>
+
+</body>
 </html>
