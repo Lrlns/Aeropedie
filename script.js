@@ -1,76 +1,93 @@
-  // éléments
-  const trigger = document.querySelector('.search-trigger');
-  const panel   = document.getElementById('searchPanel');
-  const dialog  = document.getElementById('searchDialog');
+// éléments
+const trigger = document.querySelector('.search-trigger');
+const dialog  = document.getElementById('searchDialog');
+const dialogForm  = document.getElementById('searchForm');
+const dialogInput = dialog?.querySelector('input[name="q"]');
+const dialogClose = dialog?.querySelector('.close');
+const hero    = document.querySelector('.hero');
 
-  const panelForm  = document.getElementById('panelSearchForm');
-  const panelInput = document.getElementById('panelInput');
-  const panelBack  = document.getElementById('panelBack');
+// ouvrir le plein écran
+function openSearch() {
+  if (!dialog) return;
+  if (typeof dialog.showModal === 'function') dialog.showModal();
+  else dialog.setAttribute('open','');
+  if (hero) hero.hidden = true;                 // cache la barre
+  document.body.style.overflow = 'hidden';      // bloque le scroll du fond
+  setTimeout(() => dialogInput?.focus(), 0);
+}
 
-  const dialogForm  = document.getElementById('dialogSearchForm');
-  const dialogInput = document.getElementById('dialogInput');
-  const dialogClose = dialog.querySelector('.close');
+// fermer le plein écran
+function closeSearch() {
+  if (!dialog) return;
+  dialog.close();
+}
 
-  // seuil mobile/desktop (ajuste si besoin)
-  const isMobile = () => window.matchMedia('(max-width: 700px)').matches;
+// events
+trigger?.addEventListener('click', openSearch);
+dialogClose?.addEventListener('click', closeSearch);
 
-  // ouvrir selon la taille
-  function openSearch() {
-    if (isMobile()) {
-      if (typeof dialog.showModal === 'function') dialog.showModal();
-      else dialog.setAttribute('open','');
-      setTimeout(() => dialogInput && dialogInput.focus(), 0);
-    } else {
-      panel.hidden = false;
-      setTimeout(() => panelInput && panelInput.focus(), 0);
-    }
-  }
+// fermer quand le dialog se ferme (Esc, submit, etc.)
+dialog?.addEventListener('close', () => {
+  if (hero) hero.hidden = false;                // ré-affiche la barre
+  document.body.style.overflow = '';            // réactive le scroll
+});
 
-  // fermer
-  function closeSearch() {
-    if (!isMobile()) {
-      panel.hidden = true;
-    } else {
-      dialog.close();
-    }
-  }
+// fermer au clic sur l’arrière-plan
+dialog?.addEventListener('click', (e) => {
+  if (e.target === dialog) closeSearch();
+});
 
-  // lancement
-  trigger.addEventListener('click', openSearch);
-  panelBack.addEventListener('click', closeSearch);
-  dialogClose.addEventListener('click', closeSearch);
+// Esc (par sécurité selon navigateurs)
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && dialog?.open) closeSearch();
+});
 
-  // soumission (même destination pour les deux)
-  function onSubmit(e, inputEl) {
-    e.preventDefault();
-    const q = (inputEl.value || '').trim();
-    if (!q) { closeSearch(); return; }
-    // Redirection vers ta page de résultats :
-    window.location.href = '/recherche?q=' + encodeURIComponent(q);
-  }
+// soumission
+dialogForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const q = (dialogInput?.value || '').trim();
+  if (!q) return closeSearch();
+  window.location.href = '/recherche?q=' + encodeURIComponent(q);
+  closeSearch();
+});
 
-  panelForm.addEventListener('submit', (e) => onSubmit(e, panelInput));
-  dialogForm.addEventListener('submit', (e) => onSubmit(e, dialogInput));
+// “Recherches populaires” (boutons data-q dans le dialog)
+dialog?.addEventListener('click', (ev) => {
+  const btn = ev.target.closest('button[data-q]');
+  if (!btn) return;
+  if (dialogInput) dialogInput.value = btn.dataset.q || '';
+  dialogForm?.requestSubmit();
+});
 
-  // suggestions (click sur un item remplit et soumet)
-  function wireSuggestions(listEl, inputEl, formEl) {
-    listEl.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('button[data-q]');
-      if (!btn) return;
-      inputEl.value = btn.dataset.q;
-      formEl.requestSubmit();     // soumet le formulaire
-    });
-  }
-  wireSuggestions(document.getElementById('popularList'), panelInput, panelForm);
-  wireSuggestions(document.getElementById('popularListMobile'), dialogInput, dialogForm);
 
-  // ESC pour fermer
+// Menu "Explorer"
+(function () {
+  const btn  = document.getElementById('exploreBtn');
+  const menu = document.getElementById('exploreMenu');
+  if (!btn || !menu) return;
+
+  function open()  { menu.hidden = false; btn.setAttribute('aria-expanded','true'); }
+  function close() { menu.hidden = true;  btn.setAttribute('aria-expanded','false'); }
+  function toggle(){ menu.hidden ? open() : close(); }
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggle();
+  });
+
+  // Fermer au clic à l’extérieur
+  document.addEventListener('click', (e) => {
+    if (!menu.hidden && !menu.contains(e.target) && e.target !== btn) close();
+  });
+
+  // Echap pour fermer
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeSearch();
+    if (e.key === 'Escape') close();
   });
 
-  // si on change la taille pendant que c'est ouvert, on ferme proprement
-  window.addEventListener('resize', () => {
-    if (!panel.hidden && isMobile()) panel.hidden = true;
-    if (dialog.open && !isMobile()) dialog.close();
+  // Focus clavier : Tab sortant ferme le menu
+  menu.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') close();
   });
+})();
+

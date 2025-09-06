@@ -13,14 +13,29 @@
     <div class="container">
       <div class="bar">
 
-        <a class="explore" href="#">
-          <button>
-            <span class="label">Explorer</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="m6 9 6 6 6 -6"></path>
-            </svg>
-          </button>
-        </a>
+        <div class="explore">
+  <button id="exploreBtn" aria-expanded="false" aria-controls="exploreMenu">
+    <span class="label">Explorer</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6 -6"></path>
+    </svg>
+  </button>
+
+  <!-- Menu déroulant -->
+  <nav id="exploreMenu" class="explore-menu" hidden>
+    <h4>Sommaire</h4>
+    <ul>
+      <li><a href="/avions">Avions</a></li>
+      <li><a href="/helicopteres">Hélicoptères</a></li>
+      <li><a href="/constructeurs">Constructeurs</a></li>
+      <li><a href="/propulsion">Propulsion</a></li>
+      <li><a href="/histoire">Histoire de l’aviation</a></li>
+      <li><a href="/glossaire">Glossaire & Dossiers</a></li>
+    </ul>
+  </nav>
+</div>
+
 
         <a class="logo" href="#">
           <span class="title">Aéropédie</span>
