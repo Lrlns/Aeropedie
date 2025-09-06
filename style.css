@@ -223,6 +223,15 @@ body.search-open .hero { display: none; }
 /* (optionnel) empêche le scroll du fond */
 body.search-open { overflow: hidden; }
 
+
+.raf{
+  display:block;
+  width:auto;                         /* garde la taille naturelle */
+  max-width: min(100%, 100vw);        /* ≤ parent ET ≤ écran */
+  height:auto;                        /* conserve les proportions */
+  margin-inline:auto;                 /* centre si plus petite */
+}
+
 /* ====== Responsive mineur ====== */
 @media (max-width: 550px){
   .explore .label{ display:none; }
