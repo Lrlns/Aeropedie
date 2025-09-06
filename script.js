@@ -91,3 +91,29 @@ dialog?.addEventListener('click', (ev) => {
   });
 })();
 
+
+// Effet “zoom + ombre” au survol/focus des cartes .histoire > a
+(function () {
+  const cards = document.querySelectorAll('.histoire > a');
+  if (!cards.length) return;
+
+  const add  = el => el.classList.add('is-hovered');
+  const remove = el => el.classList.remove('is-hovered');
+
+  cards.forEach(card => {
+    // Survol souris
+    card.addEventListener('mouseenter', () => add(card));
+    card.addEventListener('mouseleave', () => remove(card));
+
+    // Clavier (Tab) = même effet
+    card.addEventListener('focusin',  () => add(card));
+    card.addEventListener('focusout', () => remove(card));
+
+    // Touch (petit “tap” visuel)
+    card.addEventListener('touchstart', () => {
+      add(card);
+      setTimeout(() => remove(card), 150);
+    }, {passive:true});
+  });
+})();
+
