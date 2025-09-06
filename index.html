@@ -37,53 +37,135 @@
       </div>
     </div>  
   </header>
+<!-- Panneau de recherche (desktop) -->
+<section id="searchPanel" hidden>
+  <form id="panelSearchForm" role="search" aria-label="Rechercher">
+    <div>
+      <button type="button" id="panelBack" aria-label="Fermer">✕</button>
+      <input id="panelInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
+      <button type="submit" aria-label="Lancer la recherche">🔍</button>
+    </div>
+
+    <!-- Contenu de type suggestions (exemple statique) -->
+    <div>
+      <h3>Recherches populaires</h3>
+      <ul id="popularList">
+        <li><button type="button" data-q="machine learning">machine learning</button></li>
+        <li><button type="button" data-q="machine learning specialization">machine learning specialization</button></li>
+        <li><button type="button" data-q="machine learning andrew ng">machine learning andrew ng</button></li>
+        <li><button type="button" data-q="machine learning stanford">machine learning stanford</button></li>
+        <li><button type="button" data-q="machine learning for trading">machine learning for trading</button></li>
+      </ul>
+    </div>
+  </form>
+</section>
+
+<!-- Modal mobile -->
+<dialog id="searchDialog">
+  <form id="dialogSearchForm" role="search" aria-label="Rechercher">
+    <button type="button" class="close" aria-label="Fermer">✕</button>
+    <input id="dialogInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
+    <button type="submit" aria-label="Lancer la recherche">🔍</button>
+
+    <div>
+      <h3>Recherches populaires</h3>
+      <ul id="popularListMobile">
+        <li><button type="button" data-q="machine learning">machine learning</button></li>
+        <li><button type="button" data-q="machine learning specialization">machine learning specialization</button></li>
+        <li><button type="button" data-q="machine learning andrew ng">machine learning andrew ng</button></li>
+        <li><button type="button" data-q="machine learning stanford">machine learning stanford</button></li>
+        <li><button type="button" data-q="machine learning for trading">machine learning for trading</button></li>
+      </ul>
+    </div>
+  </form>
+</dialog>
 
   <img src="Rafale.jpg" alt="Image d'un avion" />
   <h1>Bienvenue sur Aéropédie</h1>
   <p>Le site de référence sur l'aéronautique et l'aviation</p>
   <p>Ici, vous trouverez des informations complètes sur les avions, les hélicoptères</p>
 
-  <!-- Modal avec le formulaire de recherche -->
-  <dialog id="searchDialog">
-    <form class="search-form" id="searchForm">
-      <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
-      <button type="submit" class="submit" aria-label="Lancer la recherche">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </button>
-      <button type="button" class="close" aria-label="Fermer">✕</button>
-    </form>
-  </dialog>
 
   <!-- Ton script -->
   <script>
-    const trigger = document.querySelector('.search-trigger');
-    const dialog  = document.getElementById('searchDialog');
-    const form    = document.getElementById('searchForm');
-    const closeBtn= dialog.querySelector('.close');
+  // éléments
+  const trigger = document.querySelector('.search-trigger');
+  const panel   = document.getElementById('searchPanel');
+  const dialog  = document.getElementById('searchDialog');
 
-    trigger.addEventListener('click', () => {
+  const panelForm  = document.getElementById('panelSearchForm');
+  const panelInput = document.getElementById('panelInput');
+  const panelBack  = document.getElementById('panelBack');
+
+  const dialogForm  = document.getElementById('dialogSearchForm');
+  const dialogInput = document.getElementById('dialogInput');
+  const dialogClose = dialog.querySelector('.close');
+
+  // seuil mobile/desktop (ajuste si besoin)
+  const isMobile = () => window.matchMedia('(max-width: 700px)').matches;
+
+  // ouvrir selon la taille
+  function openSearch() {
+    if (isMobile()) {
       if (typeof dialog.showModal === 'function') dialog.showModal();
       else dialog.setAttribute('open','');
-      // focus sur l'input
-      setTimeout(() => dialog.querySelector('input').focus(), 0);
-    });
+      setTimeout(() => dialogInput && dialogInput.focus(), 0);
+    } else {
+      panel.hidden = false;
+      setTimeout(() => panelInput && panelInput.focus(), 0);
+    }
+  }
 
-    closeBtn.addEventListener('click', () => dialog.close());
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const q = new FormData(form).get('q') || '';
-      if (!q.trim()) return dialog.close();
-
-      // Redirection vers une page de résultats
-      window.location.href = '/recherche?q=' + encodeURIComponent(q);
-
+  // fermer
+  function closeSearch() {
+    if (!isMobile()) {
+      panel.hidden = true;
+    } else {
       dialog.close();
+    }
+  }
+
+  // lancement
+  trigger.addEventListener('click', openSearch);
+  panelBack.addEventListener('click', closeSearch);
+  dialogClose.addEventListener('click', closeSearch);
+
+  // soumission (même destination pour les deux)
+  function onSubmit(e, inputEl) {
+    e.preventDefault();
+    const q = (inputEl.value || '').trim();
+    if (!q) { closeSearch(); return; }
+    // Redirection vers ta page de résultats :
+    window.location.href = '/recherche?q=' + encodeURIComponent(q);
+  }
+
+  panelForm.addEventListener('submit', (e) => onSubmit(e, panelInput));
+  dialogForm.addEventListener('submit', (e) => onSubmit(e, dialogInput));
+
+  // suggestions (click sur un item remplit et soumet)
+  function wireSuggestions(listEl, inputEl, formEl) {
+    listEl.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('button[data-q]');
+      if (!btn) return;
+      inputEl.value = btn.dataset.q;
+      formEl.requestSubmit();     // soumet le formulaire
     });
-  </script>
+  }
+  wireSuggestions(document.getElementById('popularList'), panelInput, panelForm);
+  wireSuggestions(document.getElementById('popularListMobile'), dialogInput, dialogForm);
+
+  // ESC pour fermer
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
+  });
+
+  // si on change la taille pendant que c'est ouvert, on ferme proprement
+  window.addEventListener('resize', () => {
+    if (!panel.hidden && isMobile()) panel.hidden = true;
+    if (dialog.open && !isMobile()) dialog.close();
+  });
+</script>
+
 
 </body>
 </html>
