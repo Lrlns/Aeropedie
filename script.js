@@ -1,30 +1,76 @@
-<script>
+  // éléments
   const trigger = document.querySelector('.search-trigger');
+  const panel   = document.getElementById('searchPanel');
   const dialog  = document.getElementById('searchDialog');
-  const form    = document.getElementById('searchForm');
-  const closeBtn= dialog.querySelector('.close');
 
-  trigger.addEventListener('click', () => {
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open','');
-    // focus sur l'input
-    setTimeout(() => dialog.querySelector('input').focus(), 0);
-  });
+  const panelForm  = document.getElementById('panelSearchForm');
+  const panelInput = document.getElementById('panelInput');
+  const panelBack  = document.getElementById('panelBack');
 
-  closeBtn.addEventListener('click', () => dialog.close());
+  const dialogForm  = document.getElementById('dialogSearchForm');
+  const dialogInput = document.getElementById('dialogInput');
+  const dialogClose = dialog.querySelector('.close');
 
-  // branche la vraie action de recherche ici
-  form.addEventListener('submit', (e) => {
+  // seuil mobile/desktop (ajuste si besoin)
+  const isMobile = () => window.matchMedia('(max-width: 700px)').matches;
+
+  // ouvrir selon la taille
+  function openSearch() {
+    if (isMobile()) {
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open','');
+      setTimeout(() => dialogInput && dialogInput.focus(), 0);
+    } else {
+      panel.hidden = false;
+      setTimeout(() => panelInput && panelInput.focus(), 0);
+    }
+  }
+
+  // fermer
+  function closeSearch() {
+    if (!isMobile()) {
+      panel.hidden = true;
+    } else {
+      dialog.close();
+    }
+  }
+
+  // lancement
+  trigger.addEventListener('click', openSearch);
+  panelBack.addEventListener('click', closeSearch);
+  dialogClose.addEventListener('click', closeSearch);
+
+  // soumission (même destination pour les deux)
+  function onSubmit(e, inputEl) {
     e.preventDefault();
-    const q = new FormData(form).get('q') || '';
-    if (!q.trim()) return dialog.close();
-
-    // OPTION 1 : redirection vers ta page de résultats
+    const q = (inputEl.value || '').trim();
+    if (!q) { closeSearch(); return; }
+    // Redirection vers ta page de résultats :
     window.location.href = '/recherche?q=' + encodeURIComponent(q);
+  }
 
-    // OPTION 2 : si tu as déjà une fonction JS
-    // doSearch(q);
+  panelForm.addEventListener('submit', (e) => onSubmit(e, panelInput));
+  dialogForm.addEventListener('submit', (e) => onSubmit(e, dialogInput));
 
-    dialog.close();
+  // suggestions (click sur un item remplit et soumet)
+  function wireSuggestions(listEl, inputEl, formEl) {
+    listEl.addEventListener('click', (ev) => {
+      const btn = ev.target.closest('button[data-q]');
+      if (!btn) return;
+      inputEl.value = btn.dataset.q;
+      formEl.requestSubmit();     // soumet le formulaire
+    });
+  }
+  wireSuggestions(document.getElementById('popularList'), panelInput, panelForm);
+  wireSuggestions(document.getElementById('popularListMobile'), dialogInput, dialogForm);
+
+  // ESC pour fermer
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
   });
-</script>
+
+  // si on change la taille pendant que c'est ouvert, on ferme proprement
+  window.addEventListener('resize', () => {
+    if (!panel.hidden && isMobile()) panel.hidden = true;
+    if (dialog.open && !isMobile()) dialog.close();
+  });
