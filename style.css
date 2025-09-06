@@ -8,11 +8,12 @@
 
 /* normalisation légère */
 *{ box-sizing:border-box; }
-html,body{ margin: 5px; background: linear-gradient(180deg, var(--page-bg-top) 0%, var(--page-bg) 25%, var(--page-bg) 100%);
+html,body{ margin:5px; background: linear-gradient(180deg, var(--page-bg-top) 0%, var(--page-bg) 25%, var(--page-bg) 100%);
 } /* ✅ unité manquante corrigée */
 body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,"Noto Sans";
   color:var(--text);
+  padding: 20px 20px;
 }
 
 /* ===== Header ===== */
@@ -36,7 +37,7 @@ body{
   justify-content:space-between;
   gap:16px;
   overflow:hidden;
-  background:var(--bg);
+  background:rgb(255 255 255 / 85%);
   border:1px solid var(--line);
   border-radius:999px;
   box-shadow:0 8px 24px rgba(0,0,0,.08);
@@ -226,17 +227,45 @@ body.search-open .hero { display: none; }
 body.search-open { overflow: hidden; }
 
 
-.raf{
+.intro{
+  display:flex;
+  align-items:center;
+  gap:20px;                 /* ↓ espace entre texte et image */
+  max-width:1200px;
+  margin:5px auto;         /* ↓ marge verticale de la section */
+  padding:8px 16px 12px;    /* top | côtés | bottom (↓) */
+  border-bottom:1px solid var(--line);
+}
+
+
+/* si c’est un <div class="intro_text">, tu peux garder ceci */
+.intro_text{ line-height:1.1; 
+font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
+
+.intro_media{
+  flex:0 1 40%;
+  min-width:0;
+  margin:0;
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* ↓ image plafonnée pour éviter que sa hauteur étire la section */
+.intro_media img{
   display:block;
-  width:auto;                         /* garde la taille naturelle */
-  max-width: min(100%, 100vw);        /* ≤ parent ET ≤ écran */
-  height:auto;                        /* conserve les proportions */
-  margin-inline:auto;                 /* centre si plus petite */
+  width:100%;
+  max-width:520px;          /* largeur max */
+  max-height:450px;         /* hauteur max : à ajuster */
+  height:auto;
+  object-fit:cover;         /* au cas où tu mets une hauteur fixe un jour */
+  border-radius:50%;       /* optionnel */
 }
 
-/* ====== Responsive mineur ====== */
-@media (max-width: 550px){
-  .explore .label{ display:none; }
-
- 
+/* Empile proprement sur mobile */
+@media (max-width: 800px){
+  .intro{ flex-direction:column; text-align:center; }
+  .intro_media{ justify-content:center; }
+  .intro_media img{ max-width:100%; max-height:320px; }
+  .explore .label{display:none}
 }
+
