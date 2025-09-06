@@ -61,15 +61,15 @@
 </section>
 
 <!-- Modal mobile -->
-<dialog id="searchDialog">
-  <form id="dialogSearchForm" role="search" aria-label="Rechercher">
+<dialog id="searchDialog" class="search-overlay">
+  <form class="search-form" id="searchForm">
     <button type="button" class="close" aria-label="Fermer">✕</button>
-    <input id="dialogInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
-    <button type="submit" aria-label="Lancer la recherche">🔍</button>
+    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
+    <button type="submit" class="submit" aria-label="Lancer la recherche">🔍</button>
 
-    <div>
+    <div class="suggestions">
       <h3>Recherches populaires</h3>
-      <ul id="popularListMobile">
+      <ul>
         <li><button type="button" data-q="machine learning">machine learning</button></li>
         <li><button type="button" data-q="machine learning specialization">machine learning specialization</button></li>
         <li><button type="button" data-q="machine learning andrew ng">machine learning andrew ng</button></li>
@@ -79,6 +79,7 @@
     </div>
   </form>
 </dialog>
+
 
   <img src="Rafale.jpg" alt="Image d'un avion" />
   <h1>Bienvenue sur Aéropédie</h1>
