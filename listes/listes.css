@@ -241,43 +241,15 @@ body.search-open .hero { display: none; }
 body.search-open { overflow: hidden; }
 
 
-.intro{
-  display:flex;
-  align-items:center;
-  gap:20px;                 /* ↓ espace entre texte et image */
-  max-width:1200px;
-  margin:10px auto;         /* ↓ marge verticale de la section */
-  padding:8px 16px 20px;    /* top | côtés | bottom (↓) */
-    }
 
 
-/* si c’est un <div class="intro_text">, tu peux garder ceci */
-.intro_text{ line-height:1.1; 
-font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 
-.intro_media{
-  flex:0 1 40%;
-  min-width:0;
-  margin:0;
-  display:flex;
-  justify-content:flex-end;
-}
-
-/* ↓ image plafonnée pour éviter que sa hauteur étire la section */
-.intro_media img{
-  display:block;
-  width:100%;
-  max-width:520px;          /* largeur max */
-  max-height:450px;         /* hauteur max : à ajuster */
-  height:auto;
-  object-fit:cover;         /* au cas où tu mets une hauteur fixe un jour */
-  border-radius:50%;       /* optionnel */
-}
+/* ===== Contenu des sections ===== */
 
 /* Conteneur en grille */
-.histoire,.liste{
+.liste{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* colonnes égales, responsive */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* colonnes égales, responsive */
   gap: 12px;
   max-width: 1200px;
   margin: 24px auto;
@@ -285,14 +257,14 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 }
 
 /* Le titre au-dessus de tout */
-.histoire .title,.liste .title{
+.liste .title{
   grid-column: 1 / -1;   /* occupe toute la largeur de la grille */
   margin: 0 0 12px;
  color:var(--text)
 }
 
 /* Carte : transitions + rendu propre quand on l’élève */
-.histoire > a:not(.title),.liste > a:not(.title){
+.liste > a:not(.title),.liste > a:not(.title){
   position:relative;
   display:flex;
   align-items:flex-end;
@@ -314,7 +286,7 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
   cursor: pointer;
 }
 
-.histoire > a:not(.title) img,.liste> a:not(.title) img
+.liste > a:not(.title) img,.liste> a:not(.title) img
  {
   position:absolute;
   inset:0;
@@ -328,22 +300,21 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 }
 
 /* ▼ État “survolé / focus” : élève la carte + zoom l’image */
-.histoire> a:not(.title):is(:hover, :focus-visible, :focus-within, :active),
 .liste> a:not(.title):is(:hover, :focus-visible, :focus-within, :active){
   transform: translateY(-3px);
   box-shadow:
     0 18px 40px rgba(0,0,0,.18),
     0 6px 16px rgba(0,0,0,.10);
 }
-.histoire > a:not(.title):is(:hover, :focus-visible, :focus-within, :active) img,
-.liste> a:not(.title):is(:hover, :focus-visible, :focus-within, :active) img
+
+.liste > a:not(.title):is(:hover, :focus-visible, :focus-within, :active) img
 {
   transform: scale(1.06);
 }
 
 
 /* si tu mets du texte dans le <a> */
-.histoire > a span,
+
 .liste > a span{
   position:relative;
   z-index:1;
@@ -356,10 +327,7 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 
 /* Empile proprement sur mobile */
 @media (max-width: 800px){
-  .intro{ flex-direction:column; text-align:center; }
-  .intro_media{ justify-content:center; }
-  .intro_media img{ max-width:100%; max-height:320px; }
   .explore .label{display:none}
-  .histoire,.liste{ grid-template-columns: 1fr; }
+  .liste{ grid-template-columns: 1fr; }
 }
 

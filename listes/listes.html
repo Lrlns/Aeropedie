@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="listes.css"> 
   <title>Aéropédie</title>
 </head>
 
@@ -26,7 +26,7 @@
   <nav id="exploreMenu" class="explore-menu" hidden>
     <h4>Sommaire</h4>
     <ul>
-      <li><a href="listes/listes.html">Avions</a></li>
+      <li><a href="/listes.html">Avions</a></li>
       <li><a href="/helicopteres">Hélicoptères</a></li>
       <li><a href="/constructeurs">Constructeurs</a></li>
       <li><a href="/propulsion">Propulsion</a></li>
@@ -37,7 +37,7 @@
 </div>
 
 
-        <a class="logo" href="#">
+        <a class="logo" href="../index.html">
           <span class="title">Aéropédie</span>
         </a>
 
@@ -65,6 +65,7 @@
     <div>
       <h3>Recherches populaires</h3>
       <ul id="popularList">
+        <li><button type="button" data-q="machine learning">machine learning</button></li>
         <li><button type="button" data-q="aviation française">aviation française</button></li>
         <li><button type="button" data-q="Rafale">Rafale</button></li>
         <li><button type="button" data-q="missiles">missiles</button></li>
@@ -95,95 +96,39 @@
   </form>
 </dialog>
 
-<section class="intro">
-<div class="intro_text">La référence de l'histoire aéronautique</div>
-<figure class="intro_media"><img  src="pictures/Rafale.jpg" alt="Image d'un Rafale" /></figure>
-</section>
-
-
-<section class="presentation">
-  <h1>Bienvenue sur Aéropédie</h1>
-  <p>Le site de référence sur l'aéronautique et l'aviation</p>
-  <p>Ici, vous trouverez des informations complètes sur les avions, les hélicoptères 
-    et leur histoire depuis plus d'un siècle d'innovation.</p>
-  <p>Explorez nos articles détaillés sur les différents types d'aéronefs, les technologies de propulsion,
-    les grands constructeurs et bien plus encore.</p>
-  <p>Testez vos connaissances aéronautiques grâce à un quiz sur la thématique
-    de votre choix.
-  </p>
-</section>
-
-<section class="histoire">
-<a class="title" href="#">
-<h1>Histoire de l'aéronautique</h1>
-</a>
-
-<a class="debut" href="#">
-<img src="histoire/pictures/debut.jpg" alt="Les prémices de l'aviation">
-<span>Les prémices de l’aviation</span>
-</a>
-
-
-<a class="pg" href="#">
-<img src="histoire/pictures/pg.jpg" alt="La Première Guerre mondiale">
-<span>La Première Guerre mondiale</span>
-</a>
-
-<a class="eg" href="#">
-<img src="histoire/pictures/eg.jpg" alt="L'Entre-deux-guerres">
-<span>L'Entre-deux-guerres</span>
-</a>
-
-
-<a class="sg" href="#">
-<img src="histoire/pictures/sg.jpg" alt="La Seconde Guerre mondiale">
-<span>La Seconde Guerre mondiale</span>
-</a>
-
-
-<a class="gf" href="#">
-<img src="histoire/pictures/gf.jpg" alt="La Guerre froide">
-<span>La Guerre froide</span>
-</a>
-
-
-<a class="td" href="#">
-<img src="histoire/pictures/td.jpg" alt="De 1991 à aujourd'hui">
-<span>De 1991 à aujourd'hui</span>
-</a>
-</section>
 
 
 <section class="liste">
-<a class="title" href="listes/listes.html">
+<a class="title" href="#">
 <h1>Listes d'aéronefs</h1>
 </a>
 
 <a class="afr" href="#">
-<img src="listes/pictures/afr.jpg" alt="aviation française">
+<img src="pictures/afr.jpg" alt="aviation française">
 <span>Aviation française</span>
 </a>
-
-
+<p>l'aviation française se distingue...</p>
+<p>l'aviation américaine se distingue...</p>
 <a class="aus" href="#">
-<img src="listes/pictures/aus.jpg" alt="aviation américaine">
+<img src="pictures/aus.jpg" alt="aviation américaine">
 <span>Aviation américaine</span>
 </a>
 
 <a class="aru" href="#">
-<img src="listes/pictures/aru.jpg" alt="aviation russe">
+<img src="pictures/aru.jpg" alt="aviation russe">
 <span>Aviation russe</span>
 </a>
-
+<p>l'aviation russe se distingue...</p>
+<p>l'aviation dans le monde...</p>
 
 <a class="ama" href="#">
-<img src="listes/pictures/ama.jpg" alt="aviation mondiale acutelle">
+<img src="pictures/ama.jpg" alt="aviation mondiale acutelle">
 <span>Aviation mondiale actuelle</span>
 </a>
 
 
 </section>
 
-<script src="script.js"></script>
+<script src="listes.js"></script>
 </body>
 </html>
