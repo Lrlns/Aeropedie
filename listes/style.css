@@ -375,7 +375,7 @@ body.search-open { overflow: hidden; }
 }
 
 /* Palette et réglages généraux */
-.mili {
+.aeronef {
   --bg: #0f172a;
   --card: #0b1022;
   --text: #000000;
@@ -388,7 +388,7 @@ body.search-open { overflow: hidden; }
 }
 
 /* Chaque <div> dans .mili devient une “carte” image + tableau en ligne */
-.mili > div {
+.aeronef > div {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) minmax(360px, 2fr);
   gap: 18px;
@@ -402,7 +402,7 @@ body.search-open { overflow: hidden; }
 }
 
 /* Image à gauche */
-.mili img {
+.aeronef img {
   width: 100%;
   height: auto;
   display: block;
@@ -414,7 +414,7 @@ body.search-open { overflow: hidden; }
 }
 
 /* Tableau à droite — joli style */
-.mili table {
+.aeronef table {
   width: 100%;
   border-collapse: collapse;
   background: #ffffff;
@@ -427,7 +427,7 @@ body.search-open { overflow: hidden; }
 }
 
 /* En-tête */
-.mili thead th {
+.aeronef thead th {
   text-align: left;
   font-size: 13px;
   color: var(--text);
@@ -437,24 +437,24 @@ body.search-open { overflow: hidden; }
 }
 
 /* Cellules */
-.mili td {
+.aeronef td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--border);
   font-size: 14px;
 }
 
 /* Met en valeur la colonne “caractéristique” si elle est la première */
-.mili tbody td:first-child {
+.aeronef tbody td:first-child {
   font-weight: 600;
   color: var(--accent);
   width: 40%;
   white-space: nowrap;     /* enlève si tu veux des retours à la ligne */
 }
 
+.aeronef-media{margin:0;
+padding:0}
 
-
-
-.mili .mili-caption{
+.aeronef .aeronef-caption{
 color: var(--text);
 margin-top: 10px;
 position: static;
@@ -462,17 +462,9 @@ position: static;
 
 
 
-/* accessibilité : animations réduites */
-@media (prefers-reduced-motion: reduce){
-  .liste > a:not(.title),
-  .liste > a:not(.title) img,
-  .image-overlay__backdrop,
-  .image-overlay__panel{ transition: none; }
-}
-
 /* Empile proprement sur mobile */
 @media (max-width: 800px){
   .explore .label{ display:none; }
   .liste{ grid-template-columns: 1fr; } /* 1 carte par ligne en mobile */
-  .mili > div {grid-template-columns: 1fr}
+  .aeronef > div {grid-template-columns: 1fr}
 }
