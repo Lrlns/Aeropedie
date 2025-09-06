@@ -374,6 +374,8 @@ body.search-open { overflow: hidden; }
   line-height: 1.5;
 }
 
+
+
 /* accessibilité : animations réduites */
 @media (prefers-reduced-motion: reduce){
   .liste > a:not(.title),

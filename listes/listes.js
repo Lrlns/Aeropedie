@@ -92,23 +92,23 @@ dialog?.addEventListener('click', (ev) => {
 })();
 
 
-// Cartes images pour .histoire et .liste (sauf le lien-titre)
+
+
+// Cartes images pour .liste (sauf le lien-titre) + overlay différé
 (function () {
-  const cards = document.querySelectorAll('.histoire > a:not(.title), .liste > a:not(.title)');
+  const cards = document.querySelectorAll('.liste > a:not(.title)');
   if (!cards.length) return;
 
+  // Effet "vient vers nous" + image en background
   cards.forEach(card => {
-    // 1) Utiliser la <img> comme background du <a>
     const img = card.querySelector('img');
     if (img && img.src) {
       card.style.backgroundImage = `url("${img.src}")`;
-      // on garde l'img pour l'accessibilité mais on la rend invisible
       img.style.opacity = '0';
       img.style.pointerEvents = 'none';
       img.setAttribute('aria-hidden', 'true');
     }
 
-    // 2) Effet "vient vers nous" (classe ajoutée/retirée)
     const on = () => card.classList.add('is-hovered');
     const off = () => card.classList.remove('is-hovered');
 
@@ -120,5 +120,93 @@ dialog?.addEventListener('click', (ev) => {
       on();
       setTimeout(off, 150);
     }, { passive: true });
+  });
+
+  // ---------- Overlay différé ----------
+  let hoverTimer = null;
+  let overlayEl = null;
+  const SHOW_DELAY = 3200; // ms : "quelques secondes" -> ~1.2s, ajuste si tu veux
+
+  // helpers
+  function closeOverlay() {
+    if (!overlayEl) return;
+    overlayEl.classList.remove('image-overlay--open');
+    // petite tempo pour laisser la transition se finir
+    setTimeout(() => {
+      overlayEl?.remove();
+      overlayEl = null;
+      document.body.style.overflow = ''; // réactive le scroll
+    }, 200);
+  }
+
+  function openOverlay(fromCard) {
+    // ferme l'existant
+    if (overlayEl) closeOverlay();
+
+    const title = (fromCard.querySelector('span')?.textContent || '').trim();
+    const desc  = (fromCard.dataset.desc || fromCard.querySelector('img')?.alt || title || '').trim();
+
+    // structure du panel
+    overlayEl = document.createElement('div');
+    overlayEl.className = 'image-overlay';
+    overlayEl.innerHTML = `
+      <div class="image-overlay__backdrop" part="backdrop"></div>
+      <aside class="image-overlay__panel" role="dialog" aria-modal="true" aria-label="${title || 'Détail'}">
+        ${title ? `<h3 class="image-overlay__title">${title}</h3>` : ''}
+        ${desc ? `<p class="image-overlay__desc">${desc}</p>` : ''}
+      </aside>
+    `;
+    document.body.appendChild(overlayEl);
+    document.body.style.overflow = 'hidden'; // empêche le scroll du fond
+
+    // montrer le panneau (slide-in)
+    requestAnimationFrame(() => {
+      overlayEl.classList.add('image-overlay--open');
+    });
+
+    const panel = overlayEl.querySelector('.image-overlay__panel');
+    const backdrop = overlayEl.querySelector('.image-overlay__backdrop');
+
+    // fermeture : cliquer sur le backdrop
+    backdrop.addEventListener('click', closeOverlay);
+
+    // fermeture : sortir la souris du panneau (après être entré)
+    let inside = false;
+    panel.addEventListener('mouseenter', () => { inside = true; });
+    panel.addEventListener('mouseleave', () => {
+      if (inside) closeOverlay();
+    });
+
+    // fermeture : touche Esc
+    window.addEventListener('keydown', onEscOnce, { once: true });
+    function onEscOnce(e) { if (e.key === 'Escape') closeOverlay(); }
+  }
+
+  // Démarre le timer au survol prolongé
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(() => openOverlay(card), SHOW_DELAY);
+    });
+    card.addEventListener('mouseleave', () => {
+      clearTimeout(hoverTimer);
+      // ne ferme pas ici : on veut que ça reste si l'overlay est ouvert
+    });
+
+    // clavier : si on garde le focus assez longtemps, ouvre aussi
+    card.addEventListener('focusin', () => {
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(() => openOverlay(card), SHOW_DELAY);
+    });
+    card.addEventListener('focusout', () => clearTimeout(hoverTimer));
+
+    // mobile : long press approximatif
+    let touchTimer = null;
+    card.addEventListener('touchstart', () => {
+      touchTimer = setTimeout(() => openOverlay(card), SHOW_DELAY);
+    }, { passive: true });
+    card.addEventListener('touchend',   () => clearTimeout(touchTimer));
+    card.addEventListener('touchmove',  () => clearTimeout(touchTimer));
+    card.addEventListener('touchcancel',() => clearTimeout(touchTimer));
   });
 })();
