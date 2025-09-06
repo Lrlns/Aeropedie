@@ -235,4 +235,11 @@ body.search-open { overflow: hidden; }
 /* ====== Responsive mineur ====== */
 @media (max-width: 550px){
   .explore .label{ display:none; }
+
+  .img-resp.fullbleed{
+    width:100vw;
+    max-width:100vw;
+    margin-left:50%;
+    transform:translateX(-50%);   /* ignore le padding du parent */
+  }
 }
