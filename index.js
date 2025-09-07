@@ -6,6 +6,9 @@ const dialogInput = dialog?.querySelector('input[name="q"]');
 const dialogClose = dialog?.querySelector('.close');
 const hero    = document.querySelector('.hero');
 
+
+
+
 // ouvrir le plein écran
 function openSearch() {
   if (!dialog) return;
@@ -16,15 +19,25 @@ function openSearch() {
   setTimeout(() => dialogInput?.focus(), 0);
 }
 
+
+
+
 // fermer le plein écran
 function closeSearch() {
   if (!dialog) return;
   dialog.close();
 }
 
+
+
+
 // events
 trigger?.addEventListener('click', openSearch);
 dialogClose?.addEventListener('click', closeSearch);
+
+
+
+
 
 // fermer quand le dialog se ferme (Esc, submit, etc.)
 dialog?.addEventListener('close', () => {
@@ -32,15 +45,27 @@ dialog?.addEventListener('close', () => {
   document.body.style.overflow = '';            // réactive le scroll
 });
 
+
+
+
+
 // fermer au clic sur l’arrière-plan
 dialog?.addEventListener('click', (e) => {
   if (e.target === dialog) closeSearch();
 });
 
+
+
+
+
 // Esc (par sécurité selon navigateurs)
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && dialog?.open) closeSearch();
 });
+
+
+
+
 
 // soumission
 dialogForm?.addEventListener('submit', (e) => {
@@ -51,6 +76,10 @@ dialogForm?.addEventListener('submit', (e) => {
   closeSearch();
 });
 
+
+
+
+
 // “Recherches populaires” (boutons data-q dans le dialog)
 dialog?.addEventListener('click', (ev) => {
   const btn = ev.target.closest('button[data-q]');
@@ -58,6 +87,9 @@ dialog?.addEventListener('click', (ev) => {
   if (dialogInput) dialogInput.value = btn.dataset.q || '';
   dialogForm?.requestSubmit();
 });
+
+
+
 
 
 // Menu "Explorer"
@@ -75,21 +107,35 @@ dialog?.addEventListener('click', (ev) => {
     toggle();
   });
 
+
+
+
+
   // Fermer au clic à l’extérieur
   document.addEventListener('click', (e) => {
     if (!menu.hidden && !menu.contains(e.target) && e.target !== btn) close();
   });
+
+
+
 
   // Echap pour fermer
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') close();
   });
 
+
+
+
   // Focus clavier : Tab sortant ferme le menu
   menu.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') close();
   });
 })();
+
+
+
+
 
 
 // Cartes images pour .histoire et .liste (sauf le lien-titre)
