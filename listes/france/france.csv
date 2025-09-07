@@ -1,6 +1,0 @@
-nom;img;hauteur;longueur;envergure;vitmax;accmax;capteurs;plafond;poidsvide;poidsmax;moteur;as;aa;canon
-Rafale;"../../pictures/""rafale.jpg""";5.3;15.3;10.9;Mach 1.8;-3.2/+9g;"Radar RBE2 AESA / OSF / INS couplé GPS / 
-Radar Doppler / Altimètres (barométrique et radar) / 
-SPECTRA / Pod Damoclès (ancien) / 
-Pod Talios (actuel) / Pod Reco NG / Pod AREOS";50000ft;10t;24.5t;2x M88;"SCALP-EG / ASMP-A / AASM ""Hammmer"" / GBU-12 Paveway II / GBU-24 Paveway III / GBU-49 Enhanced Paveway II / Mk 82 / Mk 83 / Mk 84";MICA EM / MICA IR / Meteor;GIAT 30M791 (30mm) (emport 125 obus)
-;;;;;;;;;;;;;;

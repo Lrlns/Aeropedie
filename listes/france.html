@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"> 
+  <title>Aéropédie</title>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <div class="bar">
+
+        <div class="explore">
+  <button id="exploreBtn" aria-expanded="false" aria-controls="exploreMenu">
+    <span class="label">Explorer</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6 -6"></path>
+    </svg>
+  </button>
+
+  <!-- Menu déroulant -->
+  <nav id="exploreMenu" class="explore-menu" hidden>
+    <h4>Sommaire</h4>
+    <ul>
+      <li><a href="../listes.html">Avions</a></li>
+      <li><a href="/helicopteres">Hélicoptères</a></li>
+      <li><a href="/constructeurs">Constructeurs</a></li>
+      <li><a href="/propulsion">Propulsion</a></li>
+      <li><a href="/histoire">Histoire de l’aviation</a></li>
+      <li><a href="/glossaire">Glossaire & Dossiers</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+        <a class="logo" href="../index.html">
+          <span class="title">Aéropédie</span>
+        </a>
+
+        <!-- Bouton loupe toujours visible -->
+        <button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+
+      </div>
+    </div>  
+  </header>
+<!-- Panneau de recherche (desktop) -->
+<section id="searchPanel" hidden>
+  <form id="panelSearchForm" role="search" aria-label="Rechercher">
+    <div>
+      <button type="button" id="panelBack" aria-label="Fermer">✕</button>
+      <input id="panelInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
+      <button type="submit" aria-label="Lancer la recherche">🔍</button>
+    </div>
+
+    <!-- Contenu de type suggestions (exemple statique) -->
+    <div>
+      <h3>Recherches populaires</h3>
+      <ul id="popularList">
+        <li><button type="button" data-q="machine learning">machine learning</button></li>
+        <li><button type="button" data-q="aviation française">aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">missiles</button></li>
+        <li><button type="button" data-q="aéropostale">aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</section>
+
+<!-- Modal mobile -->
+<dialog id="searchDialog" class="search-overlay">
+  <form class="search-form" id="searchForm">
+    <button type="button" class="close" aria-label="Fermer">✕</button>
+    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
+    <button type="submit" class="submit" aria-label="Lancer la recherche">🔍</button>
+
+    <div class="suggestions">
+      <h3>Recherches populaires</h3>
+      <ul>
+        <li><button type="button" data-q="aviation française">aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">missiles</button></li>
+        <li><button type="button" data-q="aéropostale">aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</dialog>
+
+<h1>Listes d'aéronefs en France</h1>
+
+
+<h2>Avions militaires</h2>
+<section class="aeronef">
+
+<div>
+<figure class="aeronef-media">
+      <img src="../pictures/rafale.jpg" alt="Rafale">
+      <figcaption class="aeronef-caption">
+      Le <strong>Rafale</strong> est un chasseur omnirôle français 
+      conçu et construit par Dassault Aviation. Il est en service dans 
+      l'Armée de l'air et la Marine nationale françaises, ainsi que 
+      dans plusieurs forces aériennes étrangères.
+      </figcaption>
+    </figure>
+
+      <table border="1" class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Charactéristique</th>
+      <th>Valeur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nom</td>
+      <td>Rafale</td>
+    </tr>
+    <tr>
+      <td>Constructeur</td>
+      <td>Dassault</td>
+    </tr>
+    <tr>
+      <td>Hauteur</td>
+      <td>5,3 m</td>
+    </tr>
+    <tr>
+      <td>Longueur</td>
+      <td>15,3 m</td>
+    </tr>
+    <tr>
+      <td>Envergure</td>
+      <td>10,9 m</td>
+    </tr>
+    <tr>
+      <td>Vitesse maximale</td>
+      <td>Mach 1,8 (2 205,1 km/h)</td>
+    </tr>
+    <tr>
+      <td>Accélération maximale</td>
+      <td>-3,2g / +9g</td>
+    </tr>
+    <tr>
+      <td>Capteurs</td>
+      <td>Radar RBE2 AESA / OSF / INS couplé GPS / Radar Doppler / 
+        Altimètres (barométrique et radar) / SPECTRA / Pod Damoclès (ancien) 
+        / Pod Talios (actuel) / Pod Reco NG / Pod AREOS</td>
+    </tr>
+    <tr>
+      <td>Plafond maximale</td>
+      <td>50 000 ft</td>
+    </tr>
+    <tr>
+      <td>Poids à vide</td>
+      <td>10 t</td>
+    </tr>
+    <tr>
+      <td>Poids maximal</td>
+      <td>24,5 t</td>
+    </tr>
+    <tr>
+      <td>Moteur</td>
+      <td>2x Snecma M88</td>
+    </tr>
+    <tr>
+      <td>Armement Air/Sol</td>
+      <td>SCALP-EG / ASMP-A / AASM "Hammmer" / GBU-12 Paveway II / 
+        GBU-24 Paveway III / GBU-49 Enhanced Paveway II / Mk 82 / 
+        Mk 83 / Mk 84</td>
+    </tr>
+    <tr>
+      <td>Armement Air/air</td>
+      <td>MICA EM / MICA IR / Meteor</td>
+    </tr>
+    <tr>
+      <td>Canon</td>
+      <td>GIAT 30M791 (30mm) (emport 125 obus)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mirage2000.jpg" alt="Mirage 2000">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mirage&nbsp;2000</strong> est un chasseur monoréacteur à aile delta, 
+      conçu par Dassault Aviation. Entré en service dans les années 1980, il existe en
+      versions 2000C/-5/-D et équipe encore plusieurs forces aériennes.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mirage 2000</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>5,2 m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>14,4 m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>9,1 m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>Mach 2,2 (~2 340 km/h)</td>
+      </tr>
+      <tr>
+        <td>Accélération maximale</td>
+        <td>-3g / +9g</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Radar Doppler (RDM/RDI sur 2000C, RDY sur 2000-5) / INS couplé GPS /
+          Altimètres (baro &amp; radar) / Pods de désignation laser (ex. Damoclès, Talios selon version)
+        </td>
+      </tr>
+      <tr>
+        <td>Plafond maximale</td>
+        <td>~55 000 ft</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~7,5 t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal</td>
+        <td>~17 t (MTOW)</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× SNECMA M53-P2</td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>
+          Bombes guidées (GBU-12/24, GBU-49) / AASM (2000D) / SCALP-EG (2000D)
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>
+          Magic II / Super 530D (2000C) / MICA EM/IR (2000-5)
+        </td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA 554 (30&nbsp;mm), ~125 obus par canon</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/se.jpg" alt="Super Étendard">
+    <figcaption class="aeronef-caption">
+      Le <strong>Super&nbsp;Étendard</strong> est un avion d’attaque embarqué
+      conçu par Dassault-Breguet. Mis en service à la fin des années 1970 puis
+      modernisé (SEM), il a servi sur porte-avions et au sein de plusieurs forces
+      aériennes.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Super Étendard</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault-Breguet (Dassault Aviation)</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>3,9 m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>14,3 m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>9,6 m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>~Mach 0,97 (≈ 1 180 km/h)</td>
+      </tr>
+      <tr>
+        <td>Accélération maximale</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Radar Thomson-CSF Agave (Anémone sur SEM) / INS couplé GPS /
+          RWR &amp; ECM / Altimètres baro &amp; radar / Pods de désignation laser
+          (ATLIS, puis Damoclès selon versions)
+        </td>
+      </tr>
+      <tr>
+        <td>Plafond maximale</td>
+        <td>~45 000 ft</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~6,5 t</td>
+      </tr>
+      <tr>
+        <td>poidsmax</td>
+        <td>~12 t (MTOW)</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× SNECMA Atar 8K-50</td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>
+          AM39 Exocet / AS-30L / Bombes guidées (GBU-12/16, BGL) /
+          roquettes et bombes lisses
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>Matra Magic II</td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA 552 (30&nbsp;mm)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mirage_f1.jpg" alt="Mirage F1">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mirage&nbsp;F1</strong> est un chasseur monoréacteur à aile en flèche,
+      conçu par Dassault Aviation. Entré en service dans les années 1970 (versions C/CT/CR/B),
+      il a assuré des rôles d’interception, d’attaque et de reconnaissance dans de nombreuses forces aériennes.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mirage F1</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>4,5 m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>15,2 m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>8,4 m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>Mach 2,2 (~2&nbsp;330 km/h, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~65&nbsp;000 ft (~20&nbsp;000 m)</td>
+      </tr>
+      <tr>
+        <td>Taux de montée</td>
+        <td>~215 m/s</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~7,4 t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~16,7 t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× SNECMA Atar 9K-50</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~6,3 t</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Radar Thomson-CSF <strong>Cyrano&nbsp;IV</strong> (var.) / INS couplé GPS / RWR &amp; ECM /
+          altimètres baro &amp; radar / pods reco (versions CR) / pods de désignation laser (selon versions modernisées)
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>
+          Matra R530 / Super&nbsp;530F (interception) / Magic I/II
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>
+          AS-30L / bombes guidées &amp; lisses / roquettes; certaines versions export (ex. F1EQ) ont emporté l’AM39 Exocet
+        </td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA 553 (30&nbsp;mm)</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1 (F1C/CT/CR) ; 2 (F1B biplace)</td>
+      </tr>
+      <tr>
+        <td>Rôles/variantes</td>
+        <td>F1C (chasse), F1CT (attaque), F1CR (reconnaissance), F1B (école)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mirage_5.jpg" alt="Mirage 5">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mirage&nbsp;5</strong> est une évolution du Mirage&nbsp;III optimisée pour l’attaque au sol :
+      avionique simplifiée à l’origine (sans radar), grande autonomie et nombreuses variantes d’export.
+      Plusieurs modernisations ont ensuite ajouté des radars et pods de désignation.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mirage 5</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>4,5&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>15,5&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>8,2&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>Mach&nbsp;2,2 (~2&nbsp;350&nbsp;km/h, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~58&nbsp;000&nbsp;ft (~17&nbsp;700&nbsp;m)</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~7,1&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~13,7&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1&times; SNECMA Atar&nbsp;9C (9K-50 sur versions modernisées)</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~4&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Avionique de navigation/attaque (origine, sans radar) / INS+GPS /
+          modernisations possibles (radars Cyrano/Agave selon versions) /
+          pods de désignation laser selon upgrade.
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>
+          Magic&nbsp;I/II, AIM-9 Sidewinder (selon export), parfois R.530 sur versions dotées de radar.
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>
+          AS-30/AS-30L, bombes guidées &amp; lisses, roquettes; pods de reco selon variantes (5R).
+        </td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2&times; DEFA&nbsp;552 (30&nbsp;mm)</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1&nbsp;(Mirage&nbsp;5) ; 2&nbsp;(Mirage&nbsp;5D biplace)</td>
+      </tr>
+      <tr>
+        <td>Rôles/variantes</td>
+        <td>Attaque au sol / Reconnaissance (5R) / Entraînement biplace (5D) ; nombreuses versions d’export.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mirage4.jpg" alt="Mirage IV">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mirage&nbsp;IV</strong> est un bombardier stratégique biréacteur à aile delta,
+      conçu par Dassault Aviation. Mis en service au milieu des années 1960, il a assuré la
+      dissuasion nucléaire française (AN-11/AN-22 puis <em>ASMP</em> sur la version IVP) et des missions
+      de reconnaissance jusqu’au retrait du service au début des années 2000.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mirage IV</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Rôle</td>
+        <td>Bombardier stratégique / Reconnaissance (IVP)</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>~5,4&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>~23,5&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>~11,8&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>Mach&nbsp;2,2 (~2&nbsp;300&nbsp;km/h, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~65&nbsp;000&nbsp;ft (~20&nbsp;000&nbsp;m)</td>
+      </tr>
+      <tr>
+        <td>Rayon d’action</td>
+        <td>~1&nbsp;200–2&nbsp;000&nbsp;km (sans ravitaillement) — ravitaillement en vol par perche</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~14&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~33&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteurs</td>
+        <td>2× SNECMA Atar&nbsp;9K-50 (post-combustion)</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Radar de navigation/attaque, Doppler, INS (puis INS+GPS sur IVP),
+          altimètres baro &amp; radar, RWR/ECM; perche de ravitaillement en vol.
+        </td>
+      </tr>
+      <tr>
+        <td>Armement principal</td>
+        <td>
+          Bombe nucléaire AN-11 / AN-22 (Mirage&nbsp;IVA) ; 1× missile ASMP (Mirage&nbsp;IVP).
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mirage3.jpg" alt="Mirage III">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mirage&nbsp;III</strong> est un chasseur à aile delta emblématique,
+      conçu par Dassault Aviation. Entré en service au début des années 1960, il a
+      été décliné en versions d’interception, d’attaque et de reconnaissance
+      (IIIC/IIIE/IIIR/IIIB) et exporté largement.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mirage III</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>~4,5&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>≈15,0–15,5&nbsp;m (selon version)</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>8,22&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>Mach&nbsp;2,2 (~2&nbsp;300&nbsp;km/h, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~56&nbsp;000&nbsp;ft (~17&nbsp;000&nbsp;m)</td>
+      </tr>
+      <tr>
+        <td>Taux de montée</td>
+        <td>~170&nbsp;m/s</td>
+      </tr>
+      <tr>
+        <td>Rayon d’action</td>
+        <td>~1&nbsp;200&nbsp;km (profil mission, avec réservoirs)</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~7,3&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~13,7&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× SNECMA Atar&nbsp;9B/9C (PC)</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~4&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Radar Thomson-CSF <strong>Cyrano&nbsp;I/II</strong> (selon version) /
+          centrale inertielle (modernisations) / altimètres baro &amp; radar /
+          pods de reconnaissance sur versions IIIR.
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>
+          Matra R.530 / R.550 Magic (selon version) / AIM-9 sur certains exports
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>
+          AS-30 / AS-30L (modernisés) / bombes guidées &amp; lisses / roquettes
+        </td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA&nbsp;552 (30&nbsp;mm)</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1 (IIIC/IIIE/IIIR) ; 2 (IIIB biplace)</td>
+      </tr>
+      <tr>
+        <td>Rôles/variantes</td>
+        <td>Interception (IIIC), Attaque (IIIE), Reconnaissance (IIIR), École (IIIB)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/SMB2.jpg" alt="Super Mystère B.2">
+    <figcaption class="aeronef-caption">
+      Le <strong>Super&nbsp;Mystère B.2</strong> est un chasseur-bombardier monoréacteur,
+      conçu par Dassault. Premier avion de série français à dépasser Mach&nbsp;1
+      en palier (fin des années 1950), il a servi notamment en France et à l’export.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Super Mystère B.2</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Rôle</td>
+        <td>Chasseur-bombardier supersonique</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>~4,6&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>~14,1&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>~10,5&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>~Mach&nbsp;1,3 (≈&nbsp;1&nbsp;250&nbsp;km/h, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~55&nbsp;000&nbsp;ft (~16&nbsp;800&nbsp;m)</td>
+      </tr>
+      <tr>
+        <td>Rayon d’action</td>
+        <td>~1&nbsp;200&nbsp;km (avec réservoirs)</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~7,5&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~12,7&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× SNECMA Atar&nbsp;101G (post-combustion)</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>5 (ailes&nbsp;+ ventral)</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~2&nbsp;700&nbsp;kg</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>
+          Aids de navigation/attaque, radio-altimètre, systèmes RWR/ECM (selon versions) ;
+          télémètre/radar de poursuite sur certaines modernisations/export.
+        </td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>Missiles courte portée (selon utilisateurs/modernisations)</td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>Bombes lisses &amp; guidées (selon upgrades), roquettes, emports divers</td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA&nbsp;552 (30&nbsp;mm)</td>
+      </tr>
+      <tr>
+        <td>Fait marquant</td>
+        <td>Premier avion de série français supersonique en palier</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mystere4.jpg" alt="Mystère IV">
+    <figcaption class="aeronef-caption">
+      Le <strong>Mystère&nbsp;IV</strong> (principalement la version IVA) est un chasseur-bombardier
+      transsonique conçu par Dassault. Mis en service au milieu des années 1950, il a servi en
+      France et à l’export (notamment Inde et Israël) dans des rôles d’interception légère et d’appui.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Mystère IV A</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Rôle</td>
+        <td>Chasseur-bombardier transsonique</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>~4,4&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>~12,9&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>~11,1&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>~1&nbsp;100&nbsp;km/h (Mach&nbsp;~0,92, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~15&nbsp;000&nbsp;m (~49&nbsp;000&nbsp;ft)</td>
+      </tr>
+      <tr>
+        <td>Rayon d’action</td>
+        <td>~1&nbsp;200&nbsp;km (avec réservoirs)</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~6,1&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~10,5&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× Hispano-Suiza Verdon&nbsp;350 (licence Rolls-Royce Tay)</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~1&nbsp;500&nbsp;kg</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>Aides nav/attaque, radio-altimètre, viseur de tir (télémètre/radar léger selon versions)</td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>Missiles courte portée sur certaines modernisations/export</td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>Bombes lisses &amp; roquettes SNEB; réservoirs largables</td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>2× DEFA&nbsp;552 (30&nbsp;mm)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/ouragan.jpg" alt="Dassault MD 450 Ouragan">
+    <figcaption class="aeronef-caption">
+      Le <strong>MD&nbsp;450&nbsp;Ouragan</strong> est le premier chasseur à réaction de série de Dassault,
+      chasseur-bombardier monoréacteur des années&nbsp;1950 ayant servi en France et à l’export.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nom</td>
+        <td>Dassault MD&nbsp;450 Ouragan</td>
+      </tr>
+      <tr>
+        <td>Constructeur</td>
+        <td>Dassault Aviation</td>
+      </tr>
+      <tr>
+        <td>Rôle</td>
+        <td>Chasseur-bombardier</td>
+      </tr>
+      <tr>
+        <td>Équipage</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Hauteur</td>
+        <td>~4,15&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Longueur</td>
+        <td>~10,73&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Envergure</td>
+        <td>~13,16&nbsp;m</td>
+      </tr>
+      <tr>
+        <td>Vitesse maximale</td>
+        <td>~940&nbsp;km/h (Mach&nbsp;~0,82, altitude)</td>
+      </tr>
+      <tr>
+        <td>Plafond maximal</td>
+        <td>~45&nbsp;000&nbsp;ft (~13&nbsp;700&nbsp;m)</td>
+      </tr>
+      <tr>
+        <td>Rayon d’action</td>
+        <td>~900–1&nbsp;100&nbsp;km (avec réservoirs)</td>
+      </tr>
+      <tr>
+        <td>Poids à vide</td>
+        <td>~4,2&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Poids maximal (MTOW)</td>
+        <td>~8,2&nbsp;t</td>
+      </tr>
+      <tr>
+        <td>Moteur</td>
+        <td>1× Hispano-Suiza Nene&nbsp;104 (licence Rolls-Royce Nene)</td>
+      </tr>
+      <tr>
+        <td>Points d’emport</td>
+        <td>4 (sous voilure)</td>
+      </tr>
+      <tr>
+        <td>Charge externe max</td>
+        <td>~1&nbsp;000&nbsp;kg</td>
+      </tr>
+      <tr>
+        <td>Capteurs</td>
+        <td>Viseur gyro, radionav, radio-altimètre; pas de radar de bord (origine)</td>
+      </tr>
+      <tr>
+        <td>Armement Air/air</td>
+        <td>— (canons et roquettes principalement)</td>
+      </tr>
+      <tr>
+        <td>Armement Air/Sol</td>
+        <td>Bombes lisses, roquettes SNEB; bidons largables</td>
+      </tr>
+      <tr>
+        <td>Canon</td>
+        <td>4× Hispano-Suiza HS.404 (20&nbsp;mm)</td>
+      </tr>
+      <tr>
+        <td>Fait marquant</td>
+        <td>Premier jet de série de Dassault; large service à l’export</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>

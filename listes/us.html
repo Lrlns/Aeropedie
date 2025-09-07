@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"> 
+  <title>Aéropédie</title>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <div class="bar">
+
+        <div class="explore">
+  <button id="exploreBtn" aria-expanded="false" aria-controls="exploreMenu">
+    <span class="label">Explorer</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6 -6"></path>
+    </svg>
+  </button>
+
+  <!-- Menu déroulant -->
+  <nav id="exploreMenu" class="explore-menu" hidden>
+    <h4>Sommaire</h4>
+    <ul>
+      <li><a href="../listes.html">Avions</a></li>
+      <li><a href="/helicopteres">Hélicoptères</a></li>
+      <li><a href="/constructeurs">Constructeurs</a></li>
+      <li><a href="/propulsion">Propulsion</a></li>
+      <li><a href="/histoire">Histoire de l’aviation</a></li>
+      <li><a href="/glossaire">Glossaire & Dossiers</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+        <a class="logo" href="../index.html">
+          <span class="title">Aéropédie</span>
+        </a>
+
+        <!-- Bouton loupe toujours visible -->
+        <button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+
+      </div>
+    </div>  
+  </header>
+<!-- Panneau de recherche (desktop) -->
+<section id="searchPanel" hidden>
+  <form id="panelSearchForm" role="search" aria-label="Rechercher">
+    <div>
+      <button type="button" id="panelBack" aria-label="Fermer">✕</button>
+      <input id="panelInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
+      <button type="submit" aria-label="Lancer la recherche">🔍</button>
+    </div>
+
+    <!-- Contenu de type suggestions (exemple statique) -->
+    <div>
+      <h3>Recherches populaires</h3>
+      <ul id="popularList">
+        <li><button type="button" data-q="aviation française">Aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">Missiles</button></li>
+        <li><button type="button" data-q="aéropostale">Aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</section>
+
+<!-- Modal mobile -->
+<dialog id="searchDialog" class="search-overlay">
+  <form class="search-form" id="searchForm">
+    <button type="button" class="close" aria-label="Fermer">✕</button>
+    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
+    <button type="submit" class="submit" aria-label="Lancer la recherche">🔍</button>
+
+    <div class="suggestions">
+      <h3>Recherches populaires</h3>
+      <ul>
+        <li><button type="button" data-q="aviation française">Aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">Missiles</button></li>
+        <li><button type="button" data-q="aéropostale">Aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</dialog>
+
+<h1>Listes d'aéronefs aux États-Unis</h1>
+
+
+<h2>Avions militaires</h2>
+<section class="aeronef">
+<!-- ===========================
+     CHASSEURS (après 1945)
+     =========================== -->
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f86_sabre.jpg" alt="F-86 Sabre">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-86 Sabre</strong>, chasseur à flèche, a marqué la Guerre de Corée face aux MiG-15.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>North American F-86 Sabre</td></tr>
+      <tr><td>Constructeur</td><td>North American Aviation</td></tr>
+      <tr><td>Rôle</td><td>Chasseur</td></tr>
+      <tr><td>Période de service</td><td>1949 – 1958 (USAF, + export)</td></tr>
+      <tr><td>Particularités</td><td>Engagé en Corée, ailes en flèche, grand succès à l’export</td></tr>
+      <tr><td>Motorisation</td><td>1× turboréacteur</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f100_super_sabre.jpg" alt="F-100 Super Sabre">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-100 Super Sabre</strong> : premier chasseur US supersonique en palier.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>North American F-100 Super Sabre</td></tr>
+      <tr><td>Constructeur</td><td>North American Aviation</td></tr>
+      <tr><td>Rôle</td><td>Chasseur-bombardier</td></tr>
+      <tr><td>Période de service</td><td>1954 – années 1970</td></tr>
+      <tr><td>Particularités</td><td>1er supersonique en vol horizontal dans l’USAF</td></tr>
+      <tr><td>Motorisation</td><td>1× turboréacteur</td></tr>
+      <tr><td>Équipage</td><td>1 (2 sur versions F-100F d’entraînement)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f104_starfighter.jpg" alt="F-104 Starfighter">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-104 Starfighter</strong> : intercepteur Mach&nbsp;2 aux ailes très fines.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Lockheed F-104 Starfighter</td></tr>
+      <tr><td>Constructeur</td><td>Lockheed</td></tr>
+      <tr><td>Rôle</td><td>Intercepteur</td></tr>
+      <tr><td>Période de service</td><td>1958 – 1975 (US), + export</td></tr>
+      <tr><td>Particularités</td><td>Intercepteur Mach 2, forte charge alaire</td></tr>
+      <tr><td>Motorisation</td><td>1× turboréacteur</td></tr>
+      <tr><td>Équipage</td><td>1 (2 sur TF-104)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f4_phantom_ii.jpg" alt="F-4 Phantom II">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-4 Phantom II</strong> : multirôle bi-réacteur emblématique de la Guerre du Viêt Nam.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>McDonnell Douglas F-4 Phantom II</td></tr>
+      <tr><td>Constructeur</td><td>McDonnell Douglas</td></tr>
+      <tr><td>Rôle</td><td>Multirôle</td></tr>
+      <tr><td>Période de service</td><td>1960 – 1996 (US), + export</td></tr>
+      <tr><td>Particularités</td><td>Large spectre de missions, très exporté</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f105_thunderchief.jpg" alt="F-105 Thunderchief">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-105 Thunderchief</strong> : chasseur-bombardier supersonique, intensément engagé au Viêt Nam.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Republic F-105 Thunderchief</td></tr>
+      <tr><td>Constructeur</td><td>Republic Aviation</td></tr>
+      <tr><td>Rôle</td><td>Chasseur-bombardier</td></tr>
+      <tr><td>Période de service</td><td>1958 – 1984 (USAF)</td></tr>
+      <tr><td>Particularités</td><td>Grande charge utile, missions Wild Weasel (F-105G)</td></tr>
+      <tr><td>Motorisation</td><td>1× turboréacteur</td></tr>
+      <tr><td>Équipage</td><td>1 (2 sur F-105F/G)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f111_aardvark.jpg" alt="F-111 Aardvark">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-111 Aardvark</strong> : chasse/bombardement tactique à géométrie variable, pénétration à grande vitesse/longue portée.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>General Dynamics F-111 Aardvark</td></tr>
+      <tr><td>Constructeur</td><td>General Dynamics</td></tr>
+      <tr><td>Rôle</td><td>Chasse/bombardement tactique</td></tr>
+      <tr><td>Période de service</td><td>1967 – 1998 (US)</td></tr>
+      <tr><td>Particularités</td><td>Ailes à géométrie variable, pénétration basse altitude</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f14_tomcat.jpg" alt="F-14 Tomcat">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-14 Tomcat</strong> : supériorité aérienne embarquée de l’US Navy, célèbre pour le Phoenix.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Grumman F-14 Tomcat</td></tr>
+      <tr><td>Constructeur</td><td>Grumman</td></tr>
+      <tr><td>Rôle</td><td>Supériorité aérienne (embarqué)</td></tr>
+      <tr><td>Période de service</td><td>1974 – 2006 (US Navy)</td></tr>
+      <tr><td>Particularités</td><td>Missiles AIM-54 Phoenix, ailes à géométrie variable</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f15_eagle.jpg" alt="F-15 Eagle">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-15 Eagle / F-15E</strong> : supériorité aérienne et bombardier tactique biplace (Strike Eagle).
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>McDonnell Douglas F-15 Eagle / F-15E Strike Eagle</td></tr>
+      <tr><td>Constructeur</td><td>McDonnell Douglas / Boeing</td></tr>
+      <tr><td>Rôle</td><td>Supériorité aérienne / Bombardement tactique</td></tr>
+      <tr><td>Période de service</td><td>1976 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Excellente poussée/poids, grande charge utile sur F-15E</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>1 (F-15C) / 2 (F-15E)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f16_fighting_falcon.jpg" alt="F-16 Fighting Falcon">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-16 Fighting Falcon</strong> : chasseur multirôle léger, très répandu et modernisé.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>General Dynamics / Lockheed Martin F-16 Fighting Falcon</td></tr>
+      <tr><td>Constructeur</td><td>General Dynamics → Lockheed Martin</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle</td></tr>
+      <tr><td>Période de service</td><td>1978 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Commandes électriques, grande diffusion mondiale</td></tr>
+      <tr><td>Motorisation</td><td>1× turboréacteur</td></tr>
+      <tr><td>Équipage</td><td>1 (2 sur biplaces d’entraînement)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/fa18_hornet.jpg" alt="F/A-18 Hornet">
+    <figcaption class="aeronef-caption">
+      Le <strong>F/A-18 Hornet</strong> : multirôle embarqué US Navy/USMC, très polyvalent.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>McDonnell Douglas F/A-18 Hornet</td></tr>
+      <tr><td>Constructeur</td><td>McDonnell Douglas / Northrop (puis Boeing)</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle embarqué</td></tr>
+      <tr><td>Période de service</td><td>1983 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Polyvalence AA/AS, versions C/D puis E/F (Super Hornet)</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>1 (C/E) ; 2 (D/F)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f22_raptor.jpg" alt="F-22 Raptor">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-22 Raptor</strong> : premier chasseur furtif de supériorité aérienne.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Lockheed Martin F-22 Raptor</td></tr>
+      <tr><td>Constructeur</td><td>Lockheed Martin (avec Boeing)</td></tr>
+      <tr><td>Rôle</td><td>Supériorité aérienne (furtif)</td></tr>
+      <tr><td>Période de service</td><td>2005 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Furtivité, super-croisière, poussée vectorielle</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/f35_lightning_ii.jpg" alt="F-35 Lightning II">
+    <figcaption class="aeronef-caption">
+      Le <strong>F-35 Lightning II</strong> : chasseur multirôle furtif (A/B/C), capacités nucléaires sur certaines versions.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Lockheed Martin F-35 Lightning II</td></tr>
+      <tr><td>Constructeur</td><td>Lockheed Martin</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle furtif</td></tr>
+      <tr><td>Période de service</td><td>2015 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Fusion de capteurs, variantes A/B (STOVL)/C (embarqué)</td></tr>
+      <tr><td>Motorisation</td><td>1× turbofan</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===========================
+     BOMBARDIERS STRATÉGIQUES
+     =========================== -->
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b36_peacemaker.jpg" alt="B-36 Peacemaker">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-36 Peacemaker</strong> : premier bombardier véritablement intercontinental de l’USAF (post-WW2).
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Convair B-36 Peacemaker</td></tr>
+      <tr><td>Constructeur</td><td>Convair</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Période de service</td><td>1948 – 1959</td></tr>
+      <tr><td>Particularités</td><td>Très long rayon d’action, 6 moteurs pistons + 4 réacteurs (versions tardives)</td></tr>
+      <tr><td>Motorisation</td><td>6 pistons + 4 turboréacteurs (selon version)</td></tr>
+      <tr><td>Équipage</td><td>~13</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b47_stratojet.jpg" alt="B-47 Stratojet">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-47 Stratojet</strong> : premier bombardier à réaction stratégique américain (d’alerte SAC).
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Boeing B-47 Stratojet</td></tr>
+      <tr><td>Constructeur</td><td>Boeing</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Période de service</td><td>1951 – 1969</td></tr>
+      <tr><td>Particularités</td><td>Ailes en flèche, 6 réacteurs, composante clé du SAC années 1950</td></tr>
+      <tr><td>Motorisation</td><td>6× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>3</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b52_stratofortress.jpg" alt="B-52 Stratofortress">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-52 Stratofortress</strong> : pilier de la dissuasion américaine, toujours en service.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Boeing B-52 Stratofortress</td></tr>
+      <tr><td>Constructeur</td><td>Boeing</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Période de service</td><td>1955 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Très longue carrière, grande charge utile</td></tr>
+      <tr><td>Motorisation</td><td>8× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>5 (selon version/période)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b58_hustler.jpg" alt="B-58 Hustler">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-58 Hustler</strong> : bombardier supersonique Mach&nbsp;2, structure en titane/composites pour l’époque.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Convair B-58 Hustler</td></tr>
+      <tr><td>Constructeur</td><td>Convair</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique supersonique</td></tr>
+      <tr><td>Période de service</td><td>1960 – 1970</td></tr>
+      <tr><td>Particularités</td><td>Mach 2, nacelles/réservoirs ventraux spécifiques</td></tr>
+      <tr><td>Motorisation</td><td>4× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>3</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/fb111a.jpg" alt="FB-111A">
+    <figcaption class="aeronef-caption">
+      Le <strong>FB-111A</strong> : dérivé stratégique du F-111 pour le SAC, pénétration nucléaire tactique/stratégique.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>General Dynamics FB-111A</td></tr>
+      <tr><td>Constructeur</td><td>General Dynamics</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique (dérivé du F-111)</td></tr>
+      <tr><td>Période de service</td><td>1969 – 1991</td></tr>
+      <tr><td>Particularités</td><td>Ailes à géométrie variable, pénétration basse altitude</td></tr>
+      <tr><td>Motorisation</td><td>2× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b1b_lancer.jpg" alt="B-1B Lancer">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-1B Lancer</strong> : bombardier supersonique à ailes à géométrie variable, pénétration à basse altitude.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Rockwell B-1B Lancer</td></tr>
+      <tr><td>Constructeur</td><td>Rockwell (Boeing)</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Période de service</td><td>1986 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Haute charge utile, ailes à géométrie variable</td></tr>
+      <tr><td>Motorisation</td><td>4× turboréacteurs</td></tr>
+      <tr><td>Équipage</td><td>4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b2_spirit.jpg" alt="B-2 Spirit">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-2 Spirit</strong> : bombardier furtif « aile volante », pénétration nucléaire/conventionnelle.
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Northrop Grumman B-2 Spirit</td></tr>
+      <tr><td>Constructeur</td><td>Northrop Grumman</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique furtif</td></tr>
+      <tr><td>Période de service</td><td>1997 – aujourd’hui</td></tr>
+      <tr><td>Particularités</td><td>Furtivité avancée, aile volante</td></tr>
+      <tr><td>Motorisation</td><td>4× turbofans</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/b21_raider.jpg" alt="B-21 Raider">
+    <figcaption class="aeronef-caption">
+      Le <strong>B-21 Raider</strong> : bombardier furtif de nouvelle génération (premiers exemplaires attendus ~2027).
+    </figcaption>
+  </figure>
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Northrop Grumman B-21 Raider</td></tr>
+      <tr><td>Constructeur</td><td>Northrop Grumman</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique furtif</td></tr>
+      <tr><td>Période de service</td><td>Prévu : ~2027 →</td></tr>
+      <tr><td>Particularités</td><td>Furtivité NG, architecture modulaire, aile volante</td></tr>
+      <tr><td>Motorisation</td><td>Turbofans (détails non publics)</td></tr>
+      <tr><td>Équipage</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+</section>
+
+
+<script src="script.js"></script>
+</body>
+</html>
