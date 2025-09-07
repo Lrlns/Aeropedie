@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="style.css"> 
+  <title>Aéropédie</title>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="bar">
+
+        <div class="explore">
+  <button id="exploreBtn" aria-expanded="false" aria-controls="exploreMenu">
+    <span class="label">Explorer</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6 -6"></path>
+    </svg>
+  </button>
+
+  <!-- Menu déroulant -->
+  <nav id="exploreMenu" class="explore-menu" hidden>
+    <h4>Sommaire</h4>
+    <ul>
+      <li><a href="../listes.html">Avions</a></li>
+      <li><a href="/helicopteres">Hélicoptères</a></li>
+      <li><a href="/constructeurs">Constructeurs</a></li>
+      <li><a href="/propulsion">Propulsion</a></li>
+      <li><a href="/histoire">Histoire de l’aviation</a></li>
+      <li><a href="/glossaire">Glossaire & Dossiers</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+        <a class="logo" href="../index.html">
+          <span class="title">Aéropédie</span>
+        </a>
+
+        <!-- Bouton loupe toujours visible -->
+        <button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+
+      </div>
+    </div>  
+  </header>
+<!-- Panneau de recherche (desktop) -->
+<section id="searchPanel" hidden>
+  <form id="panelSearchForm" role="search" aria-label="Rechercher">
+    <div>
+      <button type="button" id="panelBack" aria-label="Fermer">✕</button>
+      <input id="panelInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
+      <button type="submit" aria-label="Lancer la recherche">🔍</button>
+    </div>
+
+    <!-- Contenu de type suggestions (exemple statique) -->
+    <div>
+      <h3>Recherches populaires</h3>
+      <ul id="popularList">
+        <li><button type="button" data-q="aviation française">Aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">Missiles</button></li>
+        <li><button type="button" data-q="aéropostale">Aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</section>
+<!-- Modal mobile -->
+<dialog id="searchDialog" class="search-overlay">
+  <form class="search-form" id="searchForm">
+    <button type="button" class="close" aria-label="Fermer">✕</button>
+    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
+    <button type="submit" class="submit" aria-label="Lancer la recherche">🔍</button>
+
+    <div class="suggestions">
+      <h3>Recherches populaires</h3>
+      <ul>
+        <li><button type="button" data-q="aviation française">Aviation française</button></li>
+        <li><button type="button" data-q="Rafale">Rafale</button></li>
+        <li><button type="button" data-q="missiles">Missiles</button></li>
+        <li><button type="button" data-q="aéropostale">Aéropostale</button></li>
+        <li><button type="button" data-q="Concorde"></button>Concorde</li>
+      </ul>
+    </div>
+  </form>
+</dialog>
+
+
+
+
+<h1>Listes d'aéronefs de la Russie et de l'URSS</h1>
+
+<h2>Avions militaires</h2>
+<section class="aeronef">
+
+<!-- MiG-15 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mig15.jpg" alt="Mikoyan-Gourevitch MiG-15">
+    <figcaption class="aeronef-caption">
+      Le <strong>MiG-15</strong> a dominé les débuts de la guerre des jets en Corée face aux F-86.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Charactéristique</th><th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Nom</td><td>Mikoyan-Gourevitch MiG-15</td></tr>
+      <tr><td>Constructeur</td><td>Mikoyan-Gourevitch</td></tr>
+      <tr><td>Rôle</td><td>Chasseur</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~3,7&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~10,1&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~10,1&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~1&nbsp;075&nbsp;km/h (Mach&nbsp;~0,92)</td></tr>
+      <tr><td>Plafond maximal</td><td>~50&nbsp;000&nbsp;ft (~15&nbsp;500&nbsp;m)</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;200&nbsp;km</td></tr>
+      <tr><td>Poids à vide</td><td>~3,8&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~6&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>1× Klimov VK-1 (licence du Rolls-Royce Nene)</td></tr>
+      <tr><td>Points d’emport</td><td>2 (sous voilure)</td></tr>
+      <tr><td>Charge externe max</td><td>~200–400&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Viseur gyro ; radionav ; pas de radar d’origine</td></tr>
+      <tr><td>Armement Air/air</td><td>— (principalement canons ; roquettes)</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Bombes lisses ; roquettes</td></tr>
+      <tr><td>Canon</td><td>1× N-37 (37&nbsp;mm) + 2× NR-23 (23&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>« MiG Alley », Guerre de Corée</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MiG-21 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mig21.jpg" alt="Mikoyan-Gourevitch MiG-21">
+    <figcaption class="aeronef-caption">
+      Le <strong>MiG-21</strong> (delta léger) est l’un des chasseurs supersoniques les plus produits.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Mikoyan-Gourevitch MiG-21</td></tr>
+      <tr><td>Constructeur</td><td>Mikoyan-Gourevitch</td></tr>
+      <tr><td>Rôle</td><td>Chasseur / Intercepteur</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~4,1&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~14,7&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~7,15&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,05</td></tr>
+      <tr><td>Plafond maximal</td><td>~58&nbsp;000&nbsp;ft (~17&nbsp;500&nbsp;m)</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;000–1&nbsp;500&nbsp;km (selon versions)</td></tr>
+      <tr><td>Poids à vide</td><td>~5,3&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~9,5–10&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>1× Tumansky R-11 / R-13 (selon versions)</td></tr>
+      <tr><td>Points d’emport</td><td>4–5</td></tr>
+      <tr><td>Charge externe max</td><td>~2&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar RP-21/22 (selon versions) ; INS ; RWR tardifs</td></tr>
+      <tr><td>Armement Air/air</td><td>R-3S/13 (AA-2) ; R-60 (AA-8) selon versions</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Bombes, roquettes, Kh-66 (selon versions)</td></tr>
+      <tr><td>Canon</td><td>1× GSh-23L (23&nbsp;mm) (ou pod GP-9 sur versions précoces)</td></tr>
+      <tr><td>Fait marquant</td><td>Viêt Nam ; conflits israélo-arabes ; Indo-Pak</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MiG-29 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mig29.jpg" alt="Mikoyan MiG-29">
+    <figcaption class="aeronef-caption">
+      Le <strong>MiG-29</strong> multirôle léger est réputé pour son agilité et son IRST.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Mikoyan MiG-29</td></tr>
+      <tr><td>Constructeur</td><td>Mikoyan</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~4,73&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~17,3&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~11,4&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,25</td></tr>
+      <tr><td>Plafond maximal</td><td>~59&nbsp;000&nbsp;ft (~18&nbsp;000&nbsp;m)</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;400&nbsp;km (interne)</td></tr>
+      <tr><td>Poids à vide</td><td>~11&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~18&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× Klimov RD-33</td></tr>
+      <tr><td>Points d’emport</td><td>7</td></tr>
+      <tr><td>Charge externe max</td><td>~4&nbsp;000–4&nbsp;500&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar N019 ; IRST ; RWR</td></tr>
+      <tr><td>Armement Air/air</td><td>R-27, R-73, (R-77 sur versions modernisées)</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Bombes, roquettes, Kh-29/31 (selon versions)</td></tr>
+      <tr><td>Canon</td><td>1× GSh-30-1 (30&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>Kosovo (1999) ; Ukraine</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MiG-31 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/mig31.jpg" alt="Mikoyan MiG-31">
+    <figcaption class="aeronef-caption">
+      Le <strong>MiG-31</strong> est un intercepteur longue portée (Foxhound) très rapide.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Mikoyan MiG-31</td></tr>
+      <tr><td>Constructeur</td><td>Mikoyan</td></tr>
+      <tr><td>Rôle</td><td>Intercepteur longue portée</td></tr>
+      <tr><td>Équipage</td><td>2</td></tr>
+      <tr><td>Hauteur</td><td>~6,15&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~22,7&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~13,5&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,83 (altitude)</td></tr>
+      <tr><td>Plafond maximal</td><td>~65–70&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;500–3&nbsp;000&nbsp;km (selon config.)</td></tr>
+      <tr><td>Poids à vide</td><td>~22&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~46&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× Soloviev D-30F6</td></tr>
+      <tr><td>Points d’emport</td><td>6–8</td></tr>
+      <tr><td>Charge externe max</td><td>~7&nbsp;000–9&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar Zaslon (PESA) longue portée ; datalink</td></tr>
+      <tr><td>Armement Air/air</td><td>R-33, R-37</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Missiles de croisière/anti-radar (selon versions)</td></tr>
+      <tr><td>Canon</td><td>GSh-6-23 (23&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>Interceptions à très longue portée</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Su-27 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/su27.jpg" alt="Sukhoï Su-27">
+    <figcaption class="aeronef-caption">
+      Le <strong>Su-27</strong> (Flanker) est la base des Su-30/33/35, réputé pour sa manœuvrabilité.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Sukhoï Su-27</td></tr>
+      <tr><td>Constructeur</td><td>Sukhoï</td></tr>
+      <tr><td>Rôle</td><td>Supériorité aérienne</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~5,9&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~21,9&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~14,7&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,35</td></tr>
+      <tr><td>Plafond maximal</td><td>~62&nbsp;000&nbsp;ft (~19&nbsp;000&nbsp;m)</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;300–3&nbsp;500&nbsp;km (selon profil)</td></tr>
+      <tr><td>Poids à vide</td><td>~16,5&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~30&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× Lyulka/Saturn AL-31F</td></tr>
+      <tr><td>Points d’emport</td><td>10</td></tr>
+      <tr><td>Charge externe max</td><td>~6&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar N001 ; IRST ; RWR</td></tr>
+      <tr><td>Armement Air/air</td><td>R-27, R-73, (R-77 sur versions tardives)</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Bombes, roquettes, missiles guidés</td></tr>
+      <tr><td>Canon</td><td>1× GSh-30-1 (30&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>Démonstrations « Cobra de Pougatchev »</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Su-35S -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/su35s.jpg" alt="Sukhoï Su-35S">
+    <figcaption class="aeronef-caption">
+      Le <strong>Su-35S</strong> est un Flanker modernisé, avec poussée vectorielle et avionique avancée.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Sukhoï Su-35S</td></tr>
+      <tr><td>Constructeur</td><td>Sukhoï</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~5,9&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~21,9&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~15,0&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,25</td></tr>
+      <tr><td>Plafond maximal</td><td>~59&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~3&nbsp;600&nbsp;km (convoyage)</td></tr>
+      <tr><td>Poids à vide</td><td>~19&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~34,5&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× Saturn AL-41F1S (poussée vectorielle)</td></tr>
+      <tr><td>Points d’emport</td><td>12</td></tr>
+      <tr><td>Charge externe max</td><td>~8&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar Irbis-E ; IRST OLS-35 ; guerre électronique</td></tr>
+      <tr><td>Armement Air/air</td><td>R-77, R-27, R-73</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Kh-31/59/29 ; bombes guidées</td></tr>
+      <tr><td>Canon</td><td>1× GSh-30-1 (30&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>Engagements en Syrie puis en Ukraine</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Su-57 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/su57.jpg" alt="Sukhoï Su-57">
+    <figcaption class="aeronef-caption">
+      Le <strong>Su-57</strong> est le chasseur furtif russe de 5ᵉ génération (soutes internes).
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Sukhoï Su-57</td></tr>
+      <tr><td>Constructeur</td><td>Sukhoï</td></tr>
+      <tr><td>Rôle</td><td>Chasseur multirôle furtif</td></tr>
+      <tr><td>Équipage</td><td>1</td></tr>
+      <tr><td>Hauteur</td><td>~4,6&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~20,1&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~14,1&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,0</td></tr>
+      <tr><td>Plafond maximal</td><td>~65&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~1&nbsp;500–3&nbsp;500&nbsp;km (selon profil)</td></tr>
+      <tr><td>Poids à vide</td><td>~18–20&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~35&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× AL-41F1 (→ futur «&nbsp;Izd.30&nbsp;»)</td></tr>
+      <tr><td>Points d’emport</td><td>Soutes internes + points externes (non publics)</td></tr>
+      <tr><td>Charge externe max</td><td>— (non public)</td></tr>
+      <tr><td>Capteurs</td><td>Radar N036 (AESA) ; IRST ; suite guerre électronique</td></tr>
+      <tr><td>Armement Air/air</td><td>R-77-1 / K-77M ; R-74M2 (IR)</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Missiles guidés (Kh-59MK2, etc.)</td></tr>
+      <tr><td>Canon</td><td>9A1-4071K (30&nbsp;mm)</td></tr>
+      <tr><td>Fait marquant</td><td>Essais Syrie (2018) ; emploi limité rapporté en Ukraine</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Tu-16 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/tu16.jpg" alt="Tupolev Tu-16">
+    <figcaption class="aeronef-caption">
+      Le <strong>Tu-16</strong> «&nbsp;Badger&nbsp;» : bombardier stratégique/ravitailleur, très exporté.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Tupolev Tu-16</td></tr>
+      <tr><td>Constructeur</td><td>Tupolev</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique / plateforme missiles</td></tr>
+      <tr><td>Équipage</td><td>6–7</td></tr>
+      <tr><td>Hauteur</td><td>~10,4&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~34,5&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~33,0&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~1&nbsp;050&nbsp;km/h</td></tr>
+      <tr><td>Plafond maximal</td><td>~39&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~4&nbsp;500–7&nbsp;000&nbsp;km</td></tr>
+      <tr><td>Poids à vide</td><td>~37&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~75&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>2× AM-3 / RD-3M</td></tr>
+      <tr><td>Points d’emport</td><td>Soute interne + pylônes (missiles)</td></tr>
+      <tr><td>Charge externe max</td><td>~9&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar de navigation/attaque ; systèmes ESM</td></tr>
+      <tr><td>Armement Air/air</td><td>—</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Bombes / missiles (ex. Kh-22 sur certaines versions)</td></tr>
+      <tr><td>Canon</td><td>Canons défensifs 23&nbsp;mm (selon versions)</td></tr>
+      <tr><td>Fait marquant</td><td>Emploi au Moyen-Orient (Égypte) ; base du H-6 chinois</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Tu-95 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/tu95.jpg" alt="Tupolev Tu-95">
+    <figcaption class="aeronef-caption">
+      Le <strong>Tu-95</strong> «&nbsp;Bear&nbsp;» : bombardier stratégique à turbopropulseurs NK-12 contrarotatifs.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Tupolev Tu-95MS</td></tr>
+      <tr><td>Constructeur</td><td>Tupolev</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Équipage</td><td>7</td></tr>
+      <tr><td>Hauteur</td><td>~12,1&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~46,2&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~50,1&nbsp;m</td></tr>
+      <tr><td>Vitesse maximale</td><td>~925&nbsp;km/h</td></tr>
+      <tr><td>Plafond maximal</td><td>~45&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~10&nbsp;000–15&nbsp;000&nbsp;km</td></tr>
+      <tr><td>Poids à vide</td><td>~90&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~185&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>4× Kuznetsov NK-12 (turbopropulseurs)</td></tr>
+      <tr><td>Points d’emport</td><td>Soutes internes + pylônes (missiles)</td></tr>
+      <tr><td>Charge externe max</td><td>~15&nbsp;000&nbsp;kg</td></tr>
+      <tr><td>Capteurs</td><td>Radar de navigation/attaque ; ESM</td></tr>
+      <tr><td>Armement Air/air</td><td>—</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Missiles Kh-55/Kh-101 ; bombes</td></tr>
+      <tr><td>Canon</td><td>Canon de queue 23&nbsp;mm (selon versions)</td></tr>
+      <tr><td>Fait marquant</td><td>Frappe de croisière (Syrie, Ukraine)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Tu-160 -->
+<div>
+  <figure class="aeronef-media">
+    <img src="../pictures/tu160.jpg" alt="Tupolev Tu-160">
+    <figcaption class="aeronef-caption">
+      Le <strong>Tu-160</strong> «&nbsp;Blackjack&nbsp;» : bombardier supersonique à géométrie variable, très longue portée.
+    </figcaption>
+  </figure>
+
+  <table border="1" class="dataframe data-table">
+    <thead><tr style="text-align:right;"><th>Charactéristique</th><th>Valeur</th></tr></thead>
+    <tbody>
+      <tr><td>Nom</td><td>Tupolev Tu-160</td></tr>
+      <tr><td>Constructeur</td><td>Tupolev</td></tr>
+      <tr><td>Rôle</td><td>Bombardier stratégique</td></tr>
+      <tr><td>Équipage</td><td>4</td></tr>
+      <tr><td>Hauteur</td><td>~13,1&nbsp;m</td></tr>
+      <tr><td>Longueur</td><td>~54,1&nbsp;m</td></tr>
+      <tr><td>Envergure</td><td>~55,7–35,6&nbsp;m (variable)</td></tr>
+      <tr><td>Vitesse maximale</td><td>~Mach&nbsp;2,05</td></tr>
+      <tr><td>Plafond maximal</td><td>~49&nbsp;000&nbsp;ft</td></tr>
+      <tr><td>Rayon d’action</td><td>~12&nbsp;000–14&nbsp;000&nbsp;km</td></tr>
+      <tr><td>Poids à vide</td><td>~110&nbsp;t</td></tr>
+      <tr><td>Poids maximal (MTOW)</td><td>~275&nbsp;t</td></tr>
+      <tr><td>Moteur</td><td>4× Kuznetsov NK-32</td></tr>
+      <tr><td>Points d’emport</td><td>2 soutes internes (barillets)</td></tr>
+      <tr><td>Charge externe max</td><td>~40–45&nbsp;t (en soutes)</td></tr>
+      <tr><td>Capteurs</td><td>Radar de navigation/attaque ; ESM</td></tr>
+      <tr><td>Armement Air/air</td><td>—</td></tr>
+      <tr><td>Armement Air/Sol</td><td>Missiles Kh-55/101/102 ; bombes</td></tr>
+      <tr><td>Canon</td><td>—</td></tr>
+      <tr><td>Fait marquant</td><td>Frappe de croisière (Syrie, Ukraine)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</section>
+<script src="script.js"></script>
+</body>
+</html>
