@@ -257,7 +257,7 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 
 .intro_media{
   flex:0 1 40%;
-  min-width:0;
+  min-width:50px;
   margin:0;
   display:flex;
   justify-content:flex-end;
