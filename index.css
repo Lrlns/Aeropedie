@@ -269,7 +269,7 @@ font-weight:800; font-size:40px; letter-spacing:.2px; color:var(--text); }
 .intro_media img{
   display:block;
   width:100%;
-  max-width:520px;          /* largeur max */
+  max-width:500px;          /* largeur max */
   max-height:450px;         /* hauteur max : à ajuster */
   height:auto;
   object-fit:cover;         /* au cas où tu mets une hauteur fixe un jour */
