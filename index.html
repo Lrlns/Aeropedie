@@ -41,59 +41,11 @@
           <span class="title">Aéropédie</span>
         </a>
 
-        <!-- Bouton loupe toujours visible -->
-        <button class="search-trigger" aria-haspopup="dialog" aria-controls="searchDialog" aria-label="Rechercher">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </button>
+        
 
       </div>
     </div>  
   </header>
-<!-- Panneau de recherche (desktop) -->
-<section id="searchPanel" hidden>
-  <form id="panelSearchForm" role="search" aria-label="Rechercher">
-    <div>
-      <button type="button" id="panelBack" aria-label="Fermer">✕</button>
-      <input id="panelInput" name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" />
-      <button type="submit" aria-label="Lancer la recherche">🔍</button>
-    </div>
-
-    <!-- Contenu de type suggestions (exemple statique) -->
-    <div>
-      <h3>Recherches populaires</h3>
-      <ul id="popularList">
-        <li><button type="button" data-q="aviation française">aviation française</button></li>
-        <li><button type="button" data-q="Rafale">Rafale</button></li>
-        <li><button type="button" data-q="missiles">missiles</button></li>
-        <li><button type="button" data-q="aéropostale">aéropostale</button></li>
-        <li><button type="button" data-q="Concorde"></button>Concorde</li>
-      </ul>
-    </div>
-  </form>
-</section>
-
-<!-- Modal mobile -->
-<dialog id="searchDialog" class="search-overlay">
-  <form class="search-form" id="searchForm">
-    <button type="button" class="close" aria-label="Fermer">✕</button>
-    <input name="q" type="search" placeholder="Rechercher" aria-label="Rechercher" autofocus />
-    <button type="submit" class="submit" aria-label="Lancer la recherche">🔍</button>
-
-    <div class="suggestions">
-      <h3>Recherches populaires</h3>
-      <ul>
-        <li><button type="button" data-q="aviation française">aviation française</button></li>
-        <li><button type="button" data-q="Rafale">Rafale</button></li>
-        <li><button type="button" data-q="missiles">missiles</button></li>
-        <li><button type="button" data-q="aéropostale">aéropostale</button></li>
-        <li><button type="button" data-q="Concorde"></button>Concorde</li>
-      </ul>
-    </div>
-  </form>
-</dialog>
 
 <section class="intro">
 <div class="intro_text">La référence de l'histoire aéronautique</div>
